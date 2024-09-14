@@ -1,23 +1,26 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Todolist} from "./Todolist";
+import {v1} from "uuid";
 
 export type TaskType = {
-    id: number
+    id: string
     title: string
     isDone: boolean
 }
+export type FilterValuesType = 'All' | 'Active' | 'Completed'
 
 function App() {
     const [tasks, setTasks] = useState<TaskType[]>([
-        {id: 1, title: 'HTML&CSS', isDone: true},
-        {id: 2, title: 'JS', isDone: true},
-        {id: 3, title: 'ReactJS', isDone: false},
-        {id: 4, title: 'Redux', isDone: false},
-        {id: 5, title: 'Redux', isDone: false},
-        {id: 6, title: 'Redux', isDone: false},
+
+        {id: v1(), title: 'HTML&CSS', isDone: true},
+        {id: v1(), title: 'JS', isDone: true},
+        {id: v1(), title: 'ReactJS', isDone: false},
+        {id: v1(), title: 'Redux', isDone: false},
+        {id: v1(), title: 'Redux', isDone: false},
+        {id: v1(), title: 'Redux', isDone: false},
     ])
-const [filter, setFilter] = useState('All')
+const [filter, setFilter] = useState<FilterValuesType>('All')
 
     let taskForTodolist = tasks
     if (filter === 'All'){
@@ -30,27 +33,31 @@ const [filter, setFilter] = useState('All')
     if (filter === 'Completed'){
         taskForTodolist = tasks.filter(task => task.isDone === true)
     }
-    function changeFilter(filter:string){
+
+    function changeFilter(filter:FilterValuesType){
         setFilter(filter)
     }
-    function removeTask(taskId: number) {
+    function removeTask(taskId: string) {
         const filteredTasks = tasks.filter(task=>{
             return task.id !== taskId
         })
         setTasks(filteredTasks)
     }
-    /*function addTask(taskId: number) {
-        const filteredTasks = tasks.filter(task=>{
-            return task.id !== taskId
-        })
-        setTasks(filteredTasks)
-    }*/
+    function addTask(title:string) {
+        const newTask = {
+            id: v1(), title: title, isDone: false
+        }
+        const newTasks = [newTask, ...tasks]
+        setTasks(newTasks)
+
+    }
     return (
         <div className="App">
             <Todolist title='My books'
                       tasks={taskForTodolist}
                       removeTask={removeTask}
-                      changeFilter={changeFilter}/>
+                      changeFilter={changeFilter}
+                      addTask={addTask}/>
 
         </div>
     );
