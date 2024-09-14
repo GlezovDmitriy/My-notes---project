@@ -6,14 +6,15 @@ export type PropsType ={
     title: string
     tasks: TaskType[]
     removeTask:(taskId:number)=>void
+    changeFilter:(filter: string)=>void
 }
-export const Todolist = ({title, tasks, removeTask}:PropsType)=>{
+export const Todolist = ({title, tasks, removeTask, changeFilter}:PropsType)=>{
     return(
         <div>
             <h3>{title}</h3>
             <div>
                 <input/>
-                <Button title={'+'}/>
+                <Button title={'+'} />
             </div>
             {tasks.length === 0 ? (
                 <p>Заметок нет!</p>
@@ -26,8 +27,8 @@ export const Todolist = ({title, tasks, removeTask}:PropsType)=>{
                                 type="checkbox"
                                 checked={task.isDone}/>
                                 <span>{task.title}</span>
-                                {/*<Button title={'X'}/>*/}
-                                <button onClick={()=>removeTask(task.id)}>X</button>
+                                <Button onClick={()=> removeTask(task.id)} title={'X'}/>
+
                             </li>
                         )
                     })
@@ -36,9 +37,9 @@ export const Todolist = ({title, tasks, removeTask}:PropsType)=>{
             )}
 
             <div>
-                <Button title={'All'}/>
-                <Button title={'Active'}/>
-                <Button title={'Completed'}/>
+                <Button title={'All'} onClick={()=> changeFilter('All')}/>
+                <Button title={'Active'} onClick={()=> changeFilter('Active')}/>
+                <Button title={'Completed'} onClick={()=> changeFilter('Completed')}/>
             </div>
         </div>
     )
