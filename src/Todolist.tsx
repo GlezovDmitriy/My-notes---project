@@ -5,26 +5,29 @@ import {Button} from "./components/button";
 export type PropsType ={
     title: string
     tasks: TaskType[]
+    removeTask:(taskId:number)=>void
 }
-export const Todolist = (props:PropsType)=>{
+export const Todolist = ({title, tasks, removeTask}:PropsType)=>{
     return(
         <div>
-            <h3>{props.title}</h3>
+            <h3>{title}</h3>
             <div>
                 <input/>
                 <Button title={'+'}/>
             </div>
-            {props.tasks.length === 0 ? (
+            {tasks.length === 0 ? (
                 <p>Заметок нет!</p>
             ): (
                 <ul>
-                    {props.tasks.map(task => {
+                    {tasks.map(task => {
 
                         return(
                             <li key={task.id}><input
                                 type="checkbox"
                                 checked={task.isDone}/>
                                 <span>{task.title}</span>
+                                {/*<Button title={'X'}/>*/}
+                                <button onClick={()=>removeTask(task.id)}>X</button>
                             </li>
                         )
                     })

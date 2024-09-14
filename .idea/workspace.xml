@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Added Todolist.tsx">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/My notes-project.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Added Button component">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
     </list>
@@ -76,7 +70,7 @@
       <workItem from="1726167623955" duration="459000" />
       <workItem from="1726168096820" duration="254000" />
       <workItem from="1726168365415" duration="4552000" />
-      <workItem from="1726344262981" duration="1313000" />
+      <workItem from="1726344262981" duration="3061000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -86,15 +80,35 @@
       <option name="project" value="LOCAL" />
       <updated>1726166730422</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Button component">
+      <option name="closed" value="true" />
+      <created>1726345902176</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726345902176</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added Todolist.tsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Todolist.tsx" />
+    <MESSAGE value="Added Button component" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Button component" />
   </component>
 </project>
