@@ -1,6 +1,6 @@
-import React, {ChangeEvent, useRef, useState} from "react";
+import React, {ChangeEvent, ChangeEventHandler, useRef, useState} from "react";
 import {FilterValuesType, TaskType} from "./App";
-import {Button} from "./components/button";
+import {Button} from "./components/Button";
 import {log} from "util";
 
 export type PropsType ={
@@ -9,8 +9,9 @@ export type PropsType ={
     removeTask:(taskId:string)=>void
     changeFilter:(filter: FilterValuesType)=>void
     addTask:(title: string)=>void
+    changeTaskStatus:(taskId:string, newStatus: boolean) =>void
 }
-export const Todolist = ({title, tasks, addTask, removeTask, changeFilter}:PropsType)=>{
+export const Todolist = ({title, changeTaskStatus, tasks, addTask, removeTask, changeFilter}:PropsType)=>{
     //const inputRef = useRef<HTMLInputElement | null>(null) /*через useRef*/
     const [taskTitle, setTaskTitle] = useState('')
 const addTaskHandler = ()=>{
@@ -20,11 +21,15 @@ const addTaskHandler = ()=>{
     const changeTaskTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setTaskTitle(event.currentTarget.value)
     }
-    const addTaskOnKeyUpHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+    const addTaskOnKeyUpHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
             addTaskHandler()
         }
     }
+    const changeFilterTasksHandler = (filter: FilterValuesType) => {
+        changeFilter(filter)
+    }
+
     return(
         <div>
             <h3>{title}</h3>
@@ -51,14 +56,21 @@ const addTaskHandler = ()=>{
             ): (
                 <ul>
                     {tasks.map(task => {
-
+                        const removeTaskHandler = () => {
+                            removeTask(task.id)
+                        }
+                        const changeTaskStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
+                            const newStatusValue = e.currentTarget.checked
+                            changeTaskStatus(task.id,newStatusValue )
+                        }
                         return(
-                            <li key={task.id}><input
+                            <li key={task.id}>
+                                <input
                                 type="checkbox"
+                                onChange={changeTaskStatusHandler}
                                 checked={task.isDone}/>
                                 <span>{task.title}</span>
-                                <Button onClick={()=> removeTask(task.id)} title={'X'}/>
-
+                                <Button onClick={removeTaskHandler} title={'X'}/>
                             </li>
                         )
                     })
@@ -67,9 +79,9 @@ const addTaskHandler = ()=>{
             )}
 
             <div>
-                <Button title={'All'} onClick={()=> changeFilter('All')}/>
-                <Button title={'Active'} onClick={()=> changeFilter('Active')}/>
-                <Button title={'Completed'} onClick={()=> changeFilter('Completed')}/>
+                <Button title={'All'} onClick={()=> changeFilterTasksHandler('All')}/>
+                <Button title={'Active'} onClick={()=> changeFilterTasksHandler('Active')}/>
+                <Button title={'Completed'} onClick={()=> changeFilterTasksHandler('Completed')}/>
             </div>
         </div>
     )

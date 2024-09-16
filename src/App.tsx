@@ -49,7 +49,9 @@ const [filter, setFilter] = useState<FilterValuesType>('All')
         }
         const newTasks = [newTask, ...tasks]
         setTasks(newTasks)
-
+    }
+    const changeTaskStatus = (taskId:string, newStatus: boolean)=>{
+debugger
     }
     return (
         <div className="App">
@@ -57,7 +59,8 @@ const [filter, setFilter] = useState<FilterValuesType>('All')
                       tasks={taskForTodolist}
                       removeTask={removeTask}
                       changeFilter={changeFilter}
-                      addTask={addTask}/>
+                      addTask={addTask}
+                      changeTaskStatus={changeTaskStatus}/>
 
         </div>
     );
