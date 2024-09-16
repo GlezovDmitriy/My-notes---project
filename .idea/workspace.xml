@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="used useRef in input element">
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="added input">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
     </list>
@@ -85,7 +85,8 @@
       <workItem from="1726344262981" duration="6579000" />
       <workItem from="1726350901513" duration="594000" />
       <workItem from="1726351509497" duration="3622000" />
-      <workItem from="1726430079372" duration="1191000" />
+      <workItem from="1726430079372" duration="2622000" />
+      <workItem from="1726512641154" duration="1559000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -127,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726355309205</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added input">
+      <option name="closed" value="true" />
+      <created>1726431606740</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726431606740</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +160,7 @@
     <MESSAGE value="Added useState" />
     <MESSAGE value="Added filtration" />
     <MESSAGE value="used useRef in input element" />
-    <option name="LAST_COMMIT_MESSAGE" value="used useRef in input element" />
+    <MESSAGE value="added input" />
+    <option name="LAST_COMMIT_MESSAGE" value="added input" />
   </component>
 </project>
