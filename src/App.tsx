@@ -20,38 +20,42 @@ function App() {
         {id: v1(), title: 'Redux', isDone: false},
         {id: v1(), title: 'Redux', isDone: false},
     ])
-const [filter, setFilter] = useState<FilterValuesType>('All')
+    const [filter, setFilter] = useState<FilterValuesType>('All')
 
     let taskForTodolist = tasks
-    if (filter === 'All'){
+    if (filter === 'All') {
         /*taskForTodolist = tasks.filter(task => !task.isDone && task.isDone)*/
         taskForTodolist = tasks
     }
-    if (filter === 'Active'){
+    if (filter === 'Active') {
         taskForTodolist = tasks.filter(task => task.isDone === false)
     }
-    if (filter === 'Completed'){
+    if (filter === 'Completed') {
         taskForTodolist = tasks.filter(task => task.isDone === true)
     }
 
-    function changeFilter(filter:FilterValuesType){
+    function changeFilter(filter: FilterValuesType) {
         setFilter(filter)
     }
+
     function removeTask(taskId: string) {
-        const filteredTasks = tasks.filter(task=>{
+        const filteredTasks = tasks.filter(task => {
             return task.id !== taskId
         })
         setTasks(filteredTasks)
     }
-    function addTask(title:string) {
+
+    function addTask(title: string) {
         const newTask = {
             id: v1(), title: title, isDone: false
         }
         const newTasks = [newTask, ...tasks]
         setTasks(newTasks)
     }
-    const changeTaskStatus = (taskId:string, newStatus: boolean)=>{
-debugger
+
+    const changeTaskStatus = (taskId: string, newStatus: boolean) => {
+        const newTasks = tasks.map(task => task.id === taskId ? {...task, isDone: newStatus} : task)
+        setTasks(newTasks)
     }
     return (
         <div className="App">
