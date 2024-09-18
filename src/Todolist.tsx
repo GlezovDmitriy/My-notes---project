@@ -2,6 +2,8 @@ import React, {ChangeEvent, ChangeEventHandler, useRef, useState} from "react";
 import {FilterValuesType, TaskType} from "./App";
 import {Button} from "./components/Button";
 import {log} from "util";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 export type PropsType ={
     title: string
@@ -13,15 +15,20 @@ export type PropsType ={
 }
 export const Todolist = ({title, changeTaskStatus, tasks, addTask, removeTask, changeFilter}:PropsType)=>{
     //const inputRef = useRef<HTMLInputElement | null>(null) /*через useRef*/
-    const [taskTitle, setTaskTitle] = useState('')
-const addTaskHandler = ()=>{
-    addTask(taskTitle)
-    setTaskTitle('')
+    const [taskTitle, setTaskTitle] = useState('') // в input-е на добавление
+    const [error, setError] = useState<string|null>(null)
+const addTaskHandler = () => {
+        if(taskTitle.trim() !== ''){
+            addTask(taskTitle.trim())
+            setTaskTitle('')
+        } else { setError('ERROR! EMPTY STRING!')}
+
 }
     const changeTaskTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setTaskTitle(event.currentTarget.value)
     }
     const addTaskOnKeyUpHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        setError('null') //обнуление ошибки
         if (event.key === 'Enter') {
             addTaskHandler()
         }
@@ -45,11 +52,13 @@ const addTaskHandler = ()=>{
                     }
                 }} />*/}
                 {/*через useState*/}
-                <input value={taskTitle}
+                <input className={error ? 'error' : ''}
+                    value={taskTitle}
                        onChange={changeTaskTitleHandler}
                        onKeyUp={addTaskOnKeyUpHandler}
                 />
                 <Button title={'+'} onClick={addTaskHandler}/>
+                {error && <div className={'error-message'}>{error}</div>}
             </div>
             {tasks.length === 0 ? (
                 <p>Заметок нет!</p>
