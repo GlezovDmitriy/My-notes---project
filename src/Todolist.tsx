@@ -7,14 +7,22 @@ import error = Simulate.error;
 
 export type PropsType ={
     title: string
+    todolistId: string
     tasks: TaskType[]
     removeTask:(taskId:string)=>void
-    changeFilter:(filter: FilterValuesType)=>void
+    changeFilter:(filter: FilterValuesType,todolistId: string)=>void
     addTask:(title: string)=>void
     changeTaskStatus:(taskId:string, newStatus: boolean) =>void
     filter: FilterValuesType
 }
-export const Todolist = ({title, changeTaskStatus, tasks, addTask, removeTask, changeFilter, filter}:PropsType)=>{
+export const Todolist = ({title,
+                             todolistId,
+                             changeTaskStatus,
+                             tasks,
+                             addTask,
+                             removeTask,
+                             changeFilter,
+                             filter}:PropsType)=>{
     //const inputRef = useRef<HTMLInputElement | null>(null) /*через useRef*/
     const [taskTitle, setTaskTitle] = useState('') // в input-е на добавление
     const [error, setError] = useState<string|null>(null)
@@ -36,7 +44,7 @@ const addTaskHandler = () => {
         }
     }
     const changeFilterTasksHandler = (filter: FilterValuesType) => {
-        changeFilter(filter)
+        changeFilter(filter, todolistId)
     }
 
     return(
