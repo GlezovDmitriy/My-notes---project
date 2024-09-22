@@ -14,6 +14,7 @@ export type PropsType = {
     addTask: (title: string, todolistId: string) => void
     changeTaskStatus: (taskId: string, newStatus: boolean, todolistId: string) => void
     filter: FilterValuesType
+    removeTodolist:(todolistId: string) => void
 }
 export const Todolist = ({
                              title,
@@ -23,7 +24,8 @@ export const Todolist = ({
                              addTask,
                              removeTask,
                              changeFilter,
-                             filter
+                             filter,
+                             removeTodolist
                          }: PropsType) => {
     //const inputRef = useRef<HTMLInputElement | null>(null) /*через useRef*/
     const [taskTitle, setTaskTitle] = useState('') // в input-е на добавление
@@ -50,10 +52,17 @@ export const Todolist = ({
     const changeFilterTasksHandler = (filter: FilterValuesType) => {
         changeFilter(filter, todolistId)
     }
+    const removeTodolistHandler=()=>{
+        removeTodolist(todolistId)
+    }
 
     return (
         <div>
-            <h3>{title}</h3>
+            <div className={'todolist-title-container'}>
+                <h3>{title}</h3>
+                <Button title={'X'} onClick={removeTodolistHandler}/>
+            </div>
+
             <div>
                 {/*через useRef*/}
                 {/* <input ref={inputRef}/>

@@ -60,7 +60,12 @@ function App() {
         setTasks({...tasks,
             [todolistId]: tasks[todolistId].map(t=>(t.id === taskId ?{...t, isDone: newStatus}  : t))})
     }
-
+const removeTodolist = (todolistId:string)=>{
+        const copyTodolists = todolists
+    setTodolists(copyTodolists.filter(tl=> tl.id !== todolistId ))
+    delete tasks[todolistId]
+    setTasks({...tasks})
+}
     return (
         <div className="App">
             {
@@ -93,7 +98,8 @@ function App() {
                                   changeFilter={changeFilter}
                                   addTask={addTask}
                                   changeTaskStatus={changeTaskStatus}
-                                  filter={tl.filter}/>
+                                  filter={tl.filter}
+                                  removeTodolist={removeTodolist}/>
                     )
                 })
             }
