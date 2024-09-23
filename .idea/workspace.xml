@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="changed functions for todolist">
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="added delete todolists with tasks">
+      <change afterPath="$PROJECT_DIR$/src/components/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
     </list>
@@ -92,7 +93,8 @@
       <workItem from="1726685874090" duration="3447000" />
       <workItem from="1726774602079" duration="4829000" />
       <workItem from="1726858337984" duration="10418000" />
-      <workItem from="1727031855383" duration="2434000" />
+      <workItem from="1727031855383" duration="3931000" />
+      <workItem from="1727118672374" duration="2861000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -214,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727033493015</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="added delete todolists with tasks">
+      <option name="closed" value="true" />
+      <created>1727034830669</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1727034830669</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +256,7 @@
     <MESSAGE value="added todolists" />
     <MESSAGE value="added TasksType" />
     <MESSAGE value="changed functions for todolist" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed functions for todolist" />
+    <MESSAGE value="added delete todolists with tasks" />
+    <option name="LAST_COMMIT_MESSAGE" value="added delete todolists with tasks" />
   </component>
 </project>

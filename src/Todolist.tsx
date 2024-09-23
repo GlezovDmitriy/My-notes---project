@@ -4,6 +4,7 @@ import {Button} from "./components/Button";
 import {log} from "util";
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
+import {AddItemForm} from "./components/AddItemForm";
 
 export type PropsType = {
     title: string
@@ -28,34 +29,16 @@ export const Todolist = ({
                              removeTodolist
                          }: PropsType) => {
     //const inputRef = useRef<HTMLInputElement | null>(null) /*через useRef*/
-    const [taskTitle, setTaskTitle] = useState('') // в input-е на добавление
-    const [error, setError] = useState<string | null>(null)
 
-    const addTaskHandler = () => {
-        if (taskTitle.trim() !== '') {
-            addTask(taskTitle.trim(), todolistId)
-            setTaskTitle('')
-        } else {
-            setError('ERROR! EMPTY STRING!')
-        }
-
-    }
-    const changeTaskTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        setTaskTitle(event.currentTarget.value)
-    }
-    const addTaskOnKeyUpHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        setError(null) //обнуление ошибки
-        if (event.key === 'Enter') {
-            addTaskHandler()
-        }
-    }
     const changeFilterTasksHandler = (filter: FilterValuesType) => {
         changeFilter(filter, todolistId)
     }
     const removeTodolistHandler=()=>{
         removeTodolist(todolistId)
     }
-
+    const addTaskCallback = (title: string) => {
+        addTask(title, todolistId)
+    }
     return (
         <div>
             <div className={'todolist-title-container'}>
@@ -75,13 +58,7 @@ export const Todolist = ({
                     }
                 }} />*/}
                 {/*через useState*/}
-                <input className={error ? 'error' : ''}
-                       value={taskTitle}
-                       onChange={changeTaskTitleHandler}
-                       onKeyUp={addTaskOnKeyUpHandler}
-                />
-                <Button title={'+'} onClick={addTaskHandler}/>
-                {error && <div className={'error-message'}>{error}</div>}
+               <AddItemForm addItem={addTaskCallback}/>
             </div>
             {tasks.length === 0 ? (
                 <p>Заметок нет!</p>
