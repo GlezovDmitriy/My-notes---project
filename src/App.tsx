@@ -67,10 +67,11 @@ const removeTodolist = (todolistId:string)=>{
     delete tasks[todolistId]
     setTasks({...tasks})
 }
-const addTodolist=()=> {
-        const newTodolist = {id:v1(), title: title, filter: 'All'}
-    setTodolists({...}
-    )
+const addTodolist=(title:string)=> {
+        const todolistId = v1()
+        const newTodolist:TodolistType = {id:todolistId, title: title, filter: 'All'}
+    setTodolists([newTodolist, ...todolists])
+    setTasks({...tasks, [todolistId]:[]})
 }
     return (
         <div className="App">
