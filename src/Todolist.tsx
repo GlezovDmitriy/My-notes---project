@@ -5,6 +5,7 @@ import {log} from "util";
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
 import {AddItemForm} from "./components/AddItemForm";
+import {EditableSpan} from "./components/EditableSpan";
 
 export type PropsType = {
     title: string
@@ -16,6 +17,7 @@ export type PropsType = {
     changeTaskStatus: (taskId: string, newStatus: boolean, todolistId: string) => void
     filter: FilterValuesType
     removeTodolist:(todolistId: string) => void
+    updateTask: (todolistId: string, taskId: string, title: string) => void
 }
 export const Todolist = ({
                              title,
@@ -26,7 +28,8 @@ export const Todolist = ({
                              removeTask,
                              changeFilter,
                              filter,
-                             removeTodolist
+                             removeTodolist,
+                             updateTask
                          }: PropsType) => {
     //const inputRef = useRef<HTMLInputElement | null>(null) /*через useRef*/
 
@@ -72,6 +75,9 @@ export const Todolist = ({
                             const newStatusValue = e.currentTarget.checked
                             changeTaskStatus(task.id, newStatusValue, todolistId)
                         }
+                        const changeTaskTitleHandler = (title: string) => {
+                            updateTask(todolistId, task.id, title)
+                        }
                         return (
                             <li key={task.id}
                                 className={task.isDone ? 'is-done' : ''}>
@@ -79,7 +85,7 @@ export const Todolist = ({
                                     type="checkbox"
                                     onChange={changeTaskStatusHandler}
                                     checked={task.isDone}/>
-                                <span>{task.title}</span>
+                                <EditableSpan value={task.title} onChange={changeTaskTitleHandler}/>
                                 <Button onClick={removeTaskHandler} title={'X'}/>
                             </li>
                         )
