@@ -3,6 +3,12 @@ import './App.css';
 import {Todolist} from "./Todolist";
 import {v1} from "uuid";
 import {AddItemForm} from "./components/AddItemForm";
+import {AppBar, Toolbar} from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
+import MenuIcon from '@mui/icons-material/Menu'
+import Paper from '@mui/material/Paper'
+
 
 type TodolistType = {
     id: string
@@ -80,8 +86,21 @@ const addTodolist=(title:string)=> {
         }
         setTasks(newTodolistTasks)
     }
+    const updateTodolist = (todolistId: string, title: string) => {
+        const newTodolists = todolists.map(tl => (tl.id === todolistId ? { ...tl, title } : tl))
+        setTodolists(newTodolists)
+    }
     return (
         <div className="App">
+            <AppBar position="static">
+                <Toolbar>
+                    <IconButton color="inherit">
+                        <MenuIcon />
+                    </IconButton>
+                    <Button color="inherit">Login</Button>
+                </Toolbar>
+            </AppBar>
+            <AddItemForm addItem={addTodolist} />
             <AddItemForm addItem={addTodolist}/>
             {
                 todolists.map(tl => {
@@ -105,17 +124,21 @@ const addTodolist=(title:string)=> {
                         setTodolists(newTodolist)
                     }
                     return (
-                        <Todolist key={tl.id}
-                                  todolistId={tl.id}
-                                  title={tl.title}
-                                  tasks={taskForTodolist}
-                                  removeTask={removeTask}
-                                  changeFilter={changeFilter}
-                                  addTask={addTask}
-                                  changeTaskStatus={changeTaskStatus}
-                                  filter={tl.filter}
-                                  removeTodolist={removeTodolist}
-                                  updateTask={updateTask}/>
+                        <Paper>
+                            <Todolist key={tl.id}
+                                      todolistId={tl.id}
+                                      title={tl.title}
+                                      tasks={taskForTodolist}
+                                      removeTask={removeTask}
+                                      changeFilter={changeFilter}
+                                      addTask={addTask}
+                                      changeTaskStatus={changeTaskStatus}
+                                      filter={tl.filter}
+                                      removeTodolist={removeTodolist}
+                                      updateTask={updateTask}
+                                      updateTodolist={updateTodolist}/>
+                        </Paper>
+
                     )
                 })
             }

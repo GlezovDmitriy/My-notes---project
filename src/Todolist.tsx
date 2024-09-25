@@ -6,6 +6,10 @@ import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
 import {AddItemForm} from "./components/AddItemForm";
 import {EditableSpan} from "./components/EditableSpan";
+import IconButton from '@mui/material/IconButton'
+import DeleteIcon from '@mui/icons-material/Delete'
+
+
 
 export type PropsType = {
     title: string
@@ -18,6 +22,7 @@ export type PropsType = {
     filter: FilterValuesType
     removeTodolist:(todolistId: string) => void
     updateTask: (todolistId: string, taskId: string, title: string) => void
+    updateTodolist: (todolistId: string, title: string) => void
 }
 export const Todolist = ({
                              title,
@@ -29,7 +34,8 @@ export const Todolist = ({
                              changeFilter,
                              filter,
                              removeTodolist,
-                             updateTask
+                             updateTask,
+                             updateTodolist
                          }: PropsType) => {
     //const inputRef = useRef<HTMLInputElement | null>(null) /*через useRef*/
 
@@ -42,11 +48,20 @@ export const Todolist = ({
     const addTaskCallback = (title: string) => {
         addTask(title, todolistId)
     }
+    const updateTodolistHandler = (title: string) => {
+        updateTodolist(todolistId, title)
+    }
     return (
         <div>
             <div className={'todolist-title-container'}>
-                <h3>{title}</h3>
-                <Button title={'X'} onClick={removeTodolistHandler}/>
+                <EditableSpan value={title} onChange={updateTodolistHandler}/>
+
+                {/*<Button title={'X'} onClick={removeTodolistHandler}/>*/}
+                {/*из MUI:*/}
+                <IconButton size="small"
+                            onClick={removeTodolistHandler}>
+                    <DeleteIcon />
+                </IconButton>
             </div>
 
             <div>
@@ -86,7 +101,11 @@ export const Todolist = ({
                                     onChange={changeTaskStatusHandler}
                                     checked={task.isDone}/>
                                 <EditableSpan value={task.title} onChange={changeTaskTitleHandler}/>
-                                <Button onClick={removeTaskHandler} title={'X'}/>
+                                {/*<Button onClick={removeTaskHandler} title={'X'}/>*/}
+                                <IconButton size="small"
+                                            onClick={removeTaskHandler}>
+                                    <DeleteIcon />
+                                </IconButton>
                             </li>
                         )
                     })

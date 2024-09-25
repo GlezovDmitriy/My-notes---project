@@ -1,5 +1,7 @@
 import React, {ChangeEvent, useState} from 'react';
-import {Button} from "./Button";
+import Button from '@mui/material/Button'
+import DeleteIcon from '@mui/icons-material/Delete'
+import {TextField} from "@mui/material";
 
 type PropsType = {
     addItem: (title: string) => void
@@ -31,12 +33,24 @@ export const AddItemForm = ({addItem}: PropsType) => {
 
     return (
         <div>
-            <input className={error ? 'error' : ''}
+            {/*<input className={error ? 'error' : ''}
                    value={title}
                    onChange={changeItemHandler}
                    onKeyUp={addItemOnKeyUpHandler}
+            />*/}
+            <TextField
+                label="Enter a title"
+                variant={'outlined'}
+                className={error ? 'error' : ''}
+                value={title}
+                size={'small'}
+                onChange={changeItemHandler}
+                onKeyUp={addItemOnKeyUpHandler}
             />
-            <Button title={'+'} onClick={addItemHandler}/>
+            {/*<Button title={'+'} onClick={addItemHandler}/>*/}
+            <Button size="small" variant="outlined" onClick={addItemHandler}>
+                ADD
+            </Button>
             {error && <div className={'error-message'}>{error}</div>}
         </div>
     );
