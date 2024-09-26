@@ -22,4 +22,6 @@
 .todolist-title-container {
   display: flex;
   align-items: center;
+  margin: 40px;
+
 }
