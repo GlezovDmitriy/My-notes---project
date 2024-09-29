@@ -47,8 +47,8 @@ export const AddItemForm = ({addItem}: PropsType) => {
                 onKeyUp={addItemOnKeyUpHandler}
             />
             {/*<Button title={'+'} onClick={addItemHandler}/>*/}
-            <Button size="small" variant="outlined" onClick={addItemHandler}>
-                ADD
+            <Button size="medium" variant="outlined" onClick={addItemHandler}>
+                +
             </Button>
             {error && <div className={'error-message'}>{error}</div>}
         </div>

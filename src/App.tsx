@@ -10,7 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Paper from '@mui/material/Paper'
 
 
-type TodolistType = {
+export type TodolistType = {
     id: string
     title: string
     filter: FilterValuesType
@@ -92,7 +92,7 @@ const addTodolist=(title:string)=> {
     }
     return (
         <div>
-            <AppBar position="static">
+            <AppBar position="static" sx={{mb: '30px'}}>
                 <Toolbar>
                     <IconButton color="inherit">
                         <MenuIcon />
@@ -101,7 +101,7 @@ const addTodolist=(title:string)=> {
                 </Toolbar>
             </AppBar>
             <Container fixed>
-                <Grid container>
+                <Grid container sx={{mb: '30px'}}>
                     <AddItemForm addItem={addTodolist} />
                 </Grid>
 
@@ -130,7 +130,7 @@ const addTodolist=(title:string)=> {
                     }
                     return (
                         <Grid spacing={5}>
-                            <Paper>
+                            <Paper sx={{  m: '10px' }}>
                                 <Todolist key={tl.id}
                                           todolistId={tl.id}
                                           title={tl.title}
