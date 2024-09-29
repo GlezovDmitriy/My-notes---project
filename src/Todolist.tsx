@@ -1,6 +1,6 @@
 import React, {ChangeEvent, ChangeEventHandler, useRef, useState} from "react";
 import {FilterValuesType, TaskType} from "./App";
-import {Button} from "./components/Button";
+//import {Button} from "./components/Button";
 import {log} from "util";
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
@@ -8,7 +8,7 @@ import {AddItemForm} from "./components/AddItemForm";
 import {EditableSpan} from "./components/EditableSpan";
 import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
-
+import Button from '@mui/material/Button'
 
 
 export type PropsType = {
@@ -114,15 +114,31 @@ export const Todolist = ({
             )}
 
             <div>
-                <Button className={filter === 'All' ? 'active-filter' : ''}
+                {/*<Button className={filter === 'All' ? 'active-filter' : ''}
                         title={'All'}
-                        onClick={() => changeFilterTasksHandler('All')}/>
-                <Button className={filter === 'Active' ? 'active-filter' : ''}
+                        onClick={() => changeFilterTasksHandler('All')}/>*/}
+                {/*<Button className={filter === 'Active' ? 'active-filter' : ''}
                         title={'Active'}
-                        onClick={() => changeFilterTasksHandler('Active')}/>
-                <Button className={filter === 'Completed' ? 'active-filter' : ''}
+                        onClick={() => changeFilterTasksHandler('Active')}/>*/}
+                {/* <Button className={filter === 'Completed' ? 'active-filter' : ''}
                         title={'Completed'}
-                        onClick={() => changeFilterTasksHandler('Completed')}/>
+                        onClick={() => changeFilterTasksHandler('Completed')}/>*/}
+                <Button size="small"
+                        variant="outlined"
+                        onClick={() => changeFilterTasksHandler('All')}>
+                    All
+                </Button>
+                <Button size="small"
+                        variant="outlined"
+                        onClick={() => changeFilterTasksHandler('Active')}>
+                    Active
+                </Button>
+                <Button size="small"
+                        variant="outlined"
+                        onClick={() => changeFilterTasksHandler('Completed')}>
+                    Completed
+                </Button>
+
             </div>
         </div>
     )

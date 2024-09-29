@@ -129,7 +129,7 @@ const addTodolist=(title:string)=> {
                         setTodolists(newTodolist)
                     }
                     return (
-                        <Grid>
+                        <Grid spacing={5}>
                             <Paper>
                                 <Todolist key={tl.id}
                                           todolistId={tl.id}

@@ -40,7 +40,6 @@ export const AddItemForm = ({addItem}: PropsType) => {
             />*/}
             <TextField
                 label="Enter a title"
-                variant={'outlined'}
                 className={error ? 'error' : ''}
                 value={title}
                 size={'small'}
