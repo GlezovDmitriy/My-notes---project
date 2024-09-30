@@ -17,5 +17,11 @@ switch (action.type) {
     case 'REMOVE-TODOLIST' : {
         return state.filter(tl => tl.id !== action.payload.id)
     }
+    case 'ADD-TODOLIST':{
+        const newTodolist = {
+            id: v1(), title: action.payload.title, filter:'All'
+        }
+        return [...state, newTodolist]
+    }
 }
 }
