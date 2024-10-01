@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="added one test">
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="added test to add todolist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model✳️/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model✳️/todolists-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model✳️/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model✳️/todolists-reducer.ts" afterDir="false" />
     </list>
@@ -60,7 +61,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Jest.correct todolist should be added">
+  <component name="RunManager" selected="Jest.correct todolist should change its name">
     <configuration name="correct todolist should be added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -85,6 +86,18 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="correct todolist should change its name" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/model✳️/todolists-reducer.test.ts" />
+      <test-names>
+        <test-name value="correct todolist should change its name" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -95,8 +108,20 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.correct todolist should change its name" />
+        <item itemvalue="npm.test" />
         <item itemvalue="Jest.correct todolist should be added" />
         <item itemvalue="Jest.correct todolist should be removed" />
       </list>
@@ -130,7 +155,8 @@
       <workItem from="1727289455503" duration="3067000" />
       <workItem from="1727380941779" duration="3121000" />
       <workItem from="1727635837350" duration="7680000" />
-      <workItem from="1727727132824" duration="841000" />
+      <workItem from="1727727132824" duration="7284000" />
+      <workItem from="1727808496430" duration="1529000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -316,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727643236918</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="added test to add todolist">
+      <option name="closed" value="true" />
+      <created>1727728049688</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1727728049688</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,6 +390,7 @@
     <MESSAGE value="changed styles" />
     <MESSAGE value="added Button from MUI" />
     <MESSAGE value="added one test" />
-    <option name="LAST_COMMIT_MESSAGE" value="added one test" />
+    <MESSAGE value="added test to add todolist" />
+    <option name="LAST_COMMIT_MESSAGE" value="added test to add todolist" />
   </component>
 </project>
