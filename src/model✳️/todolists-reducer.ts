@@ -1,10 +1,41 @@
 import {v1} from "uuid";
-import {TodolistType} from "../App";
+import {FilterValuesType, TodolistType} from "../App";
 
-type ActionsType = {
-    type: string
-    payload: any
+export type RemoveTodolistActionType = {
+    type: 'REMOVE-TODOLIST'
+    payload: {
+        id: string
+    }
 }
+
+export type AddTodolistActionType = {
+    type: 'ADD-TODOLIST'
+    payload: {
+        title: string
+    }
+}
+
+export type ChangeTodolistTitleActionType = {
+    type: 'CHANGE-TODOLIST-TITLE'
+    payload: {
+        id: string
+        title: string
+    }
+}
+
+export type ChangeTodolistFilterActionType = {
+    type: 'CHANGE-TODOLIST-FILTER'
+    payload: {
+        id: string
+        filter: FilterValuesType
+    }
+}
+
+type ActionsType =
+    | RemoveTodolistActionType
+    | AddTodolistActionType
+    | ChangeTodolistTitleActionType
+    | ChangeTodolistFilterActionType
 let todolistID1 = v1()
 let todolistID2 = v1()
 
@@ -27,6 +58,11 @@ switch (action.type) {
         return state.map(tl => (tl.id === action.payload.id
         ? { ...tl, title: action.payload.title}
         : tl))
+    }
+    case 'CHANGE-TODOLIST-FILTER':{
+        return state.map(tl => (tl.id === action.payload.id
+            ? { ...tl, filter: action.payload.filter}
+            : tl))
     }
     default:
         return state;
