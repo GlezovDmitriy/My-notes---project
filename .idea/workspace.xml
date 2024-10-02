@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="added test to update title todolist">
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="added types for action">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model✳️/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model✳️/todolists-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model✳️/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model✳️/todolists-reducer.ts" afterDir="false" />
@@ -133,9 +133,9 @@
       <list>
         <item itemvalue="Jest.correct filter of todolist should be changed" />
         <item itemvalue="Jest.correct todolist should change its name" />
-        <item itemvalue="npm.test" />
         <item itemvalue="Jest.correct todolist should be added" />
         <item itemvalue="Jest.correct todolist should be removed" />
+        <item itemvalue="npm.test" />
       </list>
     </recent_temporary>
   </component>
@@ -168,7 +168,8 @@
       <workItem from="1727380941779" duration="3121000" />
       <workItem from="1727635837350" duration="7680000" />
       <workItem from="1727727132824" duration="7284000" />
-      <workItem from="1727808496430" duration="3202000" />
+      <workItem from="1727808496430" duration="3302000" />
+      <workItem from="1727895572269" duration="2867000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -370,7 +371,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727810341961</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="added types for action">
+      <option name="closed" value="true" />
+      <created>1727813157534</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1727813157534</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,6 +421,7 @@
     <MESSAGE value="added one test" />
     <MESSAGE value="added test to add todolist" />
     <MESSAGE value="added test to update title todolist" />
-    <option name="LAST_COMMIT_MESSAGE" value="added test to update title todolist" />
+    <MESSAGE value="added types for action" />
+    <option name="LAST_COMMIT_MESSAGE" value="added types for action" />
   </component>
 </project>
