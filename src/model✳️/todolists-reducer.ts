@@ -1,20 +1,18 @@
 import {v1} from "uuid";
 import {FilterValuesType, TodolistType} from "../App";
-
-export type RemoveTodolistActionType = {
+// Типизация:
+/*export type RemoveTodolistActionType = {
     type: 'REMOVE-TODOLIST'
     payload: {
         id: string
     }
 }
-
 export type AddTodolistActionType = {
     type: 'ADD-TODOLIST'
     payload: {
         title: string
     }
 }
-
 export type ChangeTodolistTitleActionType = {
     type: 'CHANGE-TODOLIST-TITLE'
     payload: {
@@ -22,14 +20,18 @@ export type ChangeTodolistTitleActionType = {
         title: string
     }
 }
-
 export type ChangeTodolistFilterActionType = {
     type: 'CHANGE-TODOLIST-FILTER'
     payload: {
         id: string
         filter: FilterValuesType
     }
-}
+}*/
+// Автоматическая типизация:
+export type RemoveTodolistActionType = ReturnType<typeof removeTodolistAC>
+export type AddTodolistActionType = ReturnType<typeof addTodolistAC>
+export type ChangeTodolistTitleActionType = ReturnType<typeof changeTodolistTitleAC>
+export type ChangeTodolistFilterActionType = ReturnType<typeof changeTodolistFilterAC>
 
 type ActionsType =
     | RemoveTodolistActionType

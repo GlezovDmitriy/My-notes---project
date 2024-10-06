@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="added types for action">
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="added action creators">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model✳️/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model✳️/todolists-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model✳️/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model✳️/todolists-reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/it-incubator/My notes-project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/По учебе/4-todolist&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -60,7 +58,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Jest.correct filter of todolist should be changed">
+  <component name="RunManager" selected="npm.start">
     <configuration name="correct filter of todolist should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -169,7 +167,8 @@
       <workItem from="1727635837350" duration="7680000" />
       <workItem from="1727727132824" duration="7284000" />
       <workItem from="1727808496430" duration="3302000" />
-      <workItem from="1727895572269" duration="2867000" />
+      <workItem from="1727895572269" duration="5090000" />
+      <workItem from="1727977448563" duration="1847000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -379,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727813157534</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="added action creators">
+      <option name="closed" value="true" />
+      <created>1727900553849</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1727900553849</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,6 +429,7 @@
     <MESSAGE value="added test to add todolist" />
     <MESSAGE value="added test to update title todolist" />
     <MESSAGE value="added types for action" />
-    <option name="LAST_COMMIT_MESSAGE" value="added types for action" />
+    <MESSAGE value="added action creators" />
+    <option name="LAST_COMMIT_MESSAGE" value="added action creators" />
   </component>
 </project>
