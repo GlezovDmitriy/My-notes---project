@@ -70,15 +70,20 @@ switch (action.type) {
         return state;
 }
 }
-export const removeTodolistAC = (todolistId:string):RemoveTodolistActionType =>{
+// При типизации через ReturnType<typeof ...> нужно убрать типизацию в АС или будет
+//ошибка цикличности
+/*export const removeTodolistAC = (todolistId:string):RemoveTodolistActionType =>{
 return { type: 'REMOVE-TODOLIST', payload: { id: todolistId } } as const
+}*/
+export const removeTodolistAC = (todolistId:string) =>{
+    return { type: 'REMOVE-TODOLIST', payload: { id: todolistId } } as const
 }
-export const addTodolistAC = (title: string): AddTodolistActionType => {
+export const addTodolistAC = (title: string) => {
     return { type: 'ADD-TODOLIST', payload: { title } } as const
 }
-export const changeTodolistTitleAC = (todolistId: string, title: string): ChangeTodolistTitleActionType => {
+export const changeTodolistTitleAC = (todolistId: string, title: string) => {
     return { type: 'CHANGE-TODOLIST-TITLE', payload: { id: todolistId, title } } as const
 }
-export const changeTodolistFilterAC = (todolistId: string, filter: FilterValuesType): ChangeTodolistFilterActionType => {
+export const changeTodolistFilterAC = (todolistId: string, filter: FilterValuesType) => {
     return { type: 'CHANGE-TODOLIST-FILTER', payload: { id: todolistId, filter } } as const
 }
