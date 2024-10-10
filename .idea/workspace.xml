@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Added some tests for tasks">
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Added tests for tasks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model✳️/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model✳️/tasks-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model✳️/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model✳️/tasks-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model✳️/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model✳️/todolists-reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,19 +59,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Jest.title of specified task should be changed">
-    <configuration name="correct filter of todolist should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/model✳️/todolists-reducer.test.ts" />
-      <test-names>
-        <test-name value="correct filter of todolist should be changed" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Jest.correct task should be deleted from correct array">
     <configuration name="correct task should be added to correct array" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -95,6 +81,18 @@
       <test-file value="$PROJECT_DIR$/src/model✳️/tasks-reducer.test.ts" />
       <test-names>
         <test-name value="correct task should be deleted from correct array" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="correct todolist should be removed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/model✳️/todolists-reducer.test.ts" />
+      <test-names>
+        <test-name value="correct todolist should be removed" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -134,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.title of specified task should be changed" />
-        <item itemvalue="Jest.status of specified task should be changed" />
-        <item itemvalue="Jest.correct task should be added to correct array" />
         <item itemvalue="Jest.correct task should be deleted from correct array" />
-        <item itemvalue="Jest.correct filter of todolist should be changed" />
+        <item itemvalue="Jest.correct task should be added to correct array" />
+        <item itemvalue="Jest.status of specified task should be changed" />
+        <item itemvalue="Jest.title of specified task should be changed" />
+        <item itemvalue="Jest.correct todolist should be removed" />
       </list>
     </recent_temporary>
   </component>
@@ -176,7 +174,7 @@
       <workItem from="1727977448563" duration="1847000" />
       <workItem from="1728073365924" duration="5051000" />
       <workItem from="1728323256633" duration="6379000" />
-      <workItem from="1728584307542" duration="2060000" />
+      <workItem from="1728584307542" duration="5539000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -418,7 +416,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728337586078</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Added tests for tasks">
+      <option name="closed" value="true" />
+      <created>1728587225477</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1728587225477</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +443,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added filtration" />
     <MESSAGE value="used useRef in input element" />
     <MESSAGE value="added input" />
     <MESSAGE value="changed input" />
@@ -462,6 +467,7 @@
     <MESSAGE value="Added types with 'typeof'&#10;                  type operator" />
     <MESSAGE value="Added task-reducer and task-reducer.test" />
     <MESSAGE value="Added some tests for tasks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some tests for tasks" />
+    <MESSAGE value="Added tests for tasks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added tests for tasks" />
   </component>
 </project>

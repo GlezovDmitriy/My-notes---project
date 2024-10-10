@@ -51,7 +51,8 @@ switch (action.type) {
         return state.filter(tl => tl.id !== action.payload.id)
     }
     case 'ADD-TODOLIST':{
-        const newTodolist = {id: v1(),
+        const newTodolist = {
+            id: action.payload.todolistId,
             title: action.payload.title,
             filter:'All'}
         return [...state, newTodolist]
@@ -79,7 +80,7 @@ export const removeTodolistAC = (todolistId:string) =>{
     return { type: 'REMOVE-TODOLIST', payload: { id: todolistId } } as const
 }
 export const addTodolistAC = (title: string) => {
-    return { type: 'ADD-TODOLIST', payload: { title } } as const
+    return { type: 'ADD-TODOLIST', payload: { title, todolistId: v1() } } as const
 }
 export const changeTodolistTitleAC = (todolistId: string, title: string) => {
     return { type: 'CHANGE-TODOLIST-TITLE', payload: { id: todolistId, title } } as const
