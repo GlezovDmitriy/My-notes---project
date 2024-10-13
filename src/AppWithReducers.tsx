@@ -8,6 +8,8 @@ import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import MenuIcon from '@mui/icons-material/Menu'
 import Paper from '@mui/material/Paper'
+import {todolistsReducer} from "./model✳️/todolists-reducer";
+import {tasksReducer} from "./model✳️/tasks-reducer";
 
 
 export type TodolistType = {
@@ -28,13 +30,10 @@ export type FilterValuesType = 'All' | 'Active' | 'Completed'
 function AppWithReducers() {
     let todolistID1 = v1()
     let todolistID2 = v1()
-
-    let [todolists, dispatchToTodolists] = useReducer(todolistsReducer, [
-        { id: todolistID1, title: 'What to learn', filter: 'all' },
-        { id: todolistID2, title: 'What to buy', filter: 'all' },
-    ])
-
-    let [tasks, dispatchToTasks] = useReducer(tasksReducer, {
+    const initialTodolistState: TodolistType[] = [
+        { id: todolistID1, title: 'What to learn', filter: 'All' },
+        { id: todolistID2, title: 'What to buy', filter: 'All' }];
+    const initialTasksState: TasksType = {
         [todolistID1]: [
             { id: v1(), title: 'HTML&CSS', isDone: true },
             { id: v1(), title: 'JS', isDone: true },
@@ -44,7 +43,10 @@ function AppWithReducers() {
             { id: v1(), title: 'Rest API', isDone: true },
             { id: v1(), title: 'GraphQL', isDone: false },
         ],
-    })
+    }
+    let [todolists, dispatchToTodolists] = useReducer(todolistsReducer, initialTodolistState, null)
+
+    let [tasks, dispatchToTasks] = useReducer(tasksReducer, initialTasksState, null)
 
     const removeTask = (taskId: string, todolistId: string) => {
         /*const todolistTasks = tasks[todolistId]
