@@ -33,7 +33,7 @@ export type AddTodolistActionType = ReturnType<typeof addTodolistAC>
 export type ChangeTodolistTitleActionType = ReturnType<typeof changeTodolistTitleAC>
 export type ChangeTodolistFilterActionType = ReturnType<typeof changeTodolistFilterAC>
 
-type ActionsType =
+export type ActionsType =
     | RemoveTodolistActionType
     | AddTodolistActionType
     | ChangeTodolistTitleActionType
@@ -55,7 +55,7 @@ switch (action.type) {
             id: action.payload.todolistId,
             title: action.payload.title,
             filter:'All'}
-        return [...state, newTodolist]
+        return [newTodolist, ...state]
     }
     case 'CHANGE-TODOLIST-TITLE':{
         return state.map(tl => (tl.id === action.payload.id
