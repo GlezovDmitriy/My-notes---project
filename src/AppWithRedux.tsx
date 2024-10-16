@@ -15,8 +15,10 @@ import {
     changeTodolistTitleAC,
     removeTodolistAC,
     todolistsReducer
-} from "./model✳️/todolists-reducer";
-import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksReducer} from "./model✳️/tasks-reducer";
+} from "./model/todolists-reducer";
+import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksReducer} from "./model/tasks-reducer";
+import {useSelector} from "react-redux";
+import {RootState} from "./app/store";
 
 
 export type TodolistType = {
@@ -34,7 +36,9 @@ export type TasksType = {
 };
 export type FilterValuesType = 'All' | 'Active' | 'Completed'
 
-function AppWithReducers() {
+function AppWithRedux() {
+    const todolists = useSelector<RootState, TodolistType[]>(state => state.todolists)
+    const tasks = useSelector<RootState, TasksType>(state => state.tasks)
     let todolistID1 = v1()
     let todolistID2 = v1()
     const initialTodolistState: TodolistType[] = [
@@ -51,10 +55,6 @@ function AppWithReducers() {
             { id: v1(), title: 'GraphQL', isDone: false },
         ],
     }
-    let [todolists, dispatchToTodolists] = useReducer<
-        (state: TodolistType[], action: ActionsType) => TodolistType[],
-        TodolistType[]
-    >(todolistsReducer, initialTodolistState)
 
     let [tasks, dispatchToTasks] = useReducer(tasksReducer, initialTasksState)
 
@@ -148,4 +148,4 @@ function AppWithReducers() {
     );
 }
 
-export default AppWithReducers;
+export default AppWithRedux;

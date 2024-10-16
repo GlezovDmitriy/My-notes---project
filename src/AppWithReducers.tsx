@@ -15,8 +15,8 @@ import {
     changeTodolistTitleAC,
     removeTodolistAC,
     todolistsReducer
-} from "./model✳️/todolists-reducer";
-import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksReducer} from "./model✳️/tasks-reducer";
+} from "./model/todolists-reducer";
+import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksReducer} from "./model/tasks-reducer";
 
 
 export type TodolistType = {
@@ -34,7 +34,7 @@ export type TasksType = {
 };
 export type FilterValuesType = 'All' | 'Active' | 'Completed'
 
-export function AppWithRedux() {
+export function AppWithReducers() {
     let todolistID1 = v1()
     let todolistID2 = v1()
     const initialTodolistState: TodolistType[] = [
