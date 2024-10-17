@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Added Redux store">
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Added AppWithRedux.tsx">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppWithReducers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppWithReducers.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppWithRedux.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model✳️/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model✳️/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model✳️/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model✳️/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model✳️/todolists-tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-tasks-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +186,8 @@
       <workItem from="1728928948366" duration="4807000" />
       <workItem from="1728935050773" duration="273000" />
       <workItem from="1728935545729" duration="1599000" />
-      <workItem from="1729101786030" duration="3089000" />
+      <workItem from="1729101786030" duration="3883000" />
+      <workItem from="1729196144316" duration="1812000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -474,7 +469,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728937054170</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Added AppWithRedux.tsx">
+      <option name="closed" value="true" />
+      <created>1729108120242</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1729108120242</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,7 +496,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added error" />
     <MESSAGE value="added styles" />
     <MESSAGE value="added todolists" />
     <MESSAGE value="added TasksType" />
@@ -518,6 +520,7 @@
     <MESSAGE value="Added AppWithReducers.tsx with useReducer hook" />
     <MESSAGE value="Changed in AppWithReducers.tsx" />
     <MESSAGE value="Added Redux store" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Redux store" />
+    <MESSAGE value="Added AppWithRedux.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added AppWithRedux.tsx" />
   </component>
 </project>
