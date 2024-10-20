@@ -38,7 +38,7 @@ export type FilterValuesType = 'All' | 'Active' | 'Completed'
 
 function AppWithRedux() {
     const dispatch = useDispatch()
-    const todolists = useSelector<RootState, Array<TodolistDomainType>>(state => state.todolists)
+    const todolists = useSelector<RootState, Array<TodolistDomainType>>(state => state.todolists as TodolistDomainType[])
     const tasks = useSelector<RootState, TasksType>(state => state.tasks)
     let todolistID1 = v1()
     let todolistID2 = v1()
@@ -80,7 +80,7 @@ function AppWithRedux() {
         //генерациии id 2 раза - выносится action - id сгенерируется 1 раз
         // потом можно диспатчить 2 раза.
         dispatch(action)
-        dispatch(action)
+
     }
 
     const updateTodolist = (todolistId: string, title: string) => {
