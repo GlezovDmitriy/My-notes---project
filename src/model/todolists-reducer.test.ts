@@ -6,7 +6,7 @@ import {
     todolistsReducer
 } from './todolists-reducer'
 import { v1 } from 'uuid'
-import { TodolistType } from '../App'
+import { TodolistType } from '../app/App'
 let todolistId1: string
 let todolistId2: string
 let startState: TodolistType[] = []
@@ -55,7 +55,8 @@ test('correct todolist should change its name', () => {
             title: 'New Todolist',
         },
     } as const*/
-    const endState = todolistsReducer(startState, changeTodolistTitleAC(todolistId2,'New Todolist'))
+    const newTitle = 'New Todolist'
+    const endState = todolistsReducer(startState, changeTodolistTitleAC({todolistId:todolistId2,title:newTitle}))
 
     expect(endState[0].title).toBe('What to learn')
     expect(endState[1].title).toBe('New Todolist')
@@ -70,7 +71,7 @@ test('correct filter of todolist should be changed', () => {
             filter: 'Completed',
         },
     } as const*/
-    const endState = todolistsReducer(startState, changeTodolistFilterAC(todolistId2,'Completed'))
+    const endState = todolistsReducer(startState, changeTodolistFilterAC({todolistId:todolistId2,filter:'Completed'}))
 
     expect(endState[0].filter).toBe('All')
     expect(endState[1].filter).toBe('Completed')

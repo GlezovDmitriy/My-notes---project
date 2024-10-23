@@ -1,5 +1,5 @@
 import React, {ChangeEvent, ChangeEventHandler, useRef, useState} from "react";
-import {FilterValuesType, TaskType} from "./App";
+import {FilterValuesType, TaskType} from "./app/App";
 //import {Button} from "./components/Button";
 import {log} from "util";
 import {Simulate} from "react-dom/test-utils";

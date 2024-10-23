@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Changed types in todolists-reducer.ts">
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Added Redux store">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppWithReducers.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppWithRedux.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/todolists-tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-tasks-reducer.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +71,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\it-incubator\My notes-project\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\it-incubator\My notes-project\src\app" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -190,6 +199,10 @@
       <workItem from="1728935545729" duration="1599000" />
       <workItem from="1729101786030" duration="3883000" />
       <workItem from="1729196144316" duration="4642000" />
+      <workItem from="1729453659876" duration="2646000" />
+      <workItem from="1729537964904" duration="2227000" />
+      <workItem from="1729625951448" duration="2175000" />
+      <workItem from="1729714097999" duration="335000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -487,7 +500,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729198453676</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Added Redux store">
+      <option name="closed" value="true" />
+      <created>1729454179222</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1729454179222</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,20 +549,9 @@
     <MESSAGE value="Refactored tests" />
     <MESSAGE value="Added AppWithReducers.tsx with useReducer hook" />
     <MESSAGE value="Changed in AppWithReducers.tsx" />
-    <MESSAGE value="Added Redux store" />
     <MESSAGE value="Added AppWithRedux.tsx" />
     <MESSAGE value="Changed types in todolists-reducer.ts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed types in todolists-reducer.ts" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/AppWithRedux.tsx</url>
-          <line>40</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Added Redux store" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Redux store" />
   </component>
 </project>
