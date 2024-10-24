@@ -3,11 +3,12 @@ import './App.css';
 import {Todolist} from "../Todolist";
 import {v1} from "uuid";
 import {AddItemForm} from "../components/AddItemForm";
-import {AppBar, Container, Grid, Toolbar} from "@mui/material";
+import {AppBar, Container, createTheme, Grid, Switch, ThemeProvider, Toolbar} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import MenuIcon from '@mui/icons-material/Menu'
 import Paper from '@mui/material/Paper'
+import CssBaseline from '@mui/material/CssBaseline'
 import {
     ActionsType,
     addTodolistAC,
@@ -19,6 +20,8 @@ import {
 import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksReducer} from "../model/tasks-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "./store";
+import {changeThemeAC, ThemeMode} from "./app-reducer";
+import {getTheme} from "../common/theme/theme";
 
 
 export type TodolistType = {
@@ -37,6 +40,12 @@ export type TasksType = {
 export type FilterValuesType = 'All' | 'Active' | 'Completed'
 
 function App() {
+    const themeMode = useSelector<RootState, ThemeMode>(state => state.app.themeMode)
+    //const [themeMode, setThemeMode] = useState<ThemeMode>('light')
+    getTheme(themeMode)
+    const changeModeHandler = () => {
+        dispatch(changeThemeAC(themeMode === 'light' ? 'dark' : 'light'))
+    }
     const dispatch = useDispatch()
     const todolists = useSelector<RootState, Array<TodolistDomainType>>(state => state.todolists as TodolistDomainType[])
     const tasks = useSelector<RootState, TasksType>(state => state.tasks)
@@ -56,9 +65,17 @@ function App() {
             { id: v1(), title: 'GraphQL', isDone: false },
         ],
     }
-
+    const theme = createTheme({
+        palette: {
+            mode: themeMode === 'light' ? 'light' : 'dark',
+            primary: {
+                main: '#087EA4',
+            },
+        },
+    })
     /*let [tasks, dispatchToTasks] = useReducer(tasksReducer, initialTasksState)
 */
+
     const removeTask = (taskId: string, todolistId: string) => {
         dispatch(removeTaskAC( { taskId, todolistId }))
     }
@@ -88,12 +105,15 @@ function App() {
     }
     return (
         <div>
+            <ThemeProvider theme={theme}>
             <AppBar position="static" sx={{mb: '30px'}}>
                 <Toolbar>
                     <IconButton color="inherit">
                         <MenuIcon/>
                     </IconButton>
                     <Button color="inherit">Login</Button>
+
+                    <Switch color={'default'} onChange={changeModeHandler} />
                 </Toolbar>
             </AppBar>
             <Container fixed>
@@ -145,6 +165,7 @@ function App() {
                     }
                 </Grid>
             </Container>
+            </ThemeProvider>
         </div>
     );
 }
