@@ -122,9 +122,9 @@ function App() {
                                 dispatch(changeTodolistFilterAC({todolistId, filter}))
                             }
                             return (
-                                <Grid spacing={5}>
+                                <Grid item key={tl.id} spacing={5}>
                                     <Paper sx={{m: '10px'}}>
-                                        <Todolist key={tl.id}
+                                        <Todolist
                                                   todolistId={tl.id}
                                                   title={tl.title}
                                                   tasks={taskForTodolist}

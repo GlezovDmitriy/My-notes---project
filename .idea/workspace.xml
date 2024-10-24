@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Added Redux store">
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Changed tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/todolists-tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-tasks-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,28 +67,28 @@
       <recent name="E:\it-incubator\My notes-project\src\app" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
-    <configuration name="correct filter of todolist should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.correct todolist should change its name">
+    <configuration name="correct filter of todolist should be changed (1)" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/model✳️/todolists-reducer.test.ts" />
+      <test-file value="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" />
       <test-names>
         <test-name value="correct filter of todolist should be changed" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="correct task should be deleted from correct array" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="correct todolist should change its name" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/model✳️/tasks-reducer.test.ts" />
+      <test-file value="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" />
       <test-names>
-        <test-name value="correct task should be deleted from correct array" />
+        <test-name value="correct todolist should change its name" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -149,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.correct todolist should change its name" />
+        <item itemvalue="Jest.correct filter of todolist should be changed (1)" />
         <item itemvalue="Jest.property with todolistId should be deleted" />
         <item itemvalue="Jest.ids should be equals" />
         <item itemvalue="Jest.new array should be added when new todolist is added" />
-        <item itemvalue="Jest.correct task should be deleted from correct array" />
-        <item itemvalue="Jest.correct filter of todolist should be changed" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +193,8 @@
       <workItem from="1729453659876" duration="2646000" />
       <workItem from="1729537964904" duration="2227000" />
       <workItem from="1729625951448" duration="2175000" />
-      <workItem from="1729714097999" duration="335000" />
+      <workItem from="1729714097999" duration="3405000" />
+      <workItem from="1729800759898" duration="601000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -508,7 +500,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729454179222</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Changed tests">
+      <option name="closed" value="true" />
+      <created>1729714804183</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1729714804183</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +527,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added todolists" />
     <MESSAGE value="added TasksType" />
     <MESSAGE value="changed functions for todolist" />
     <MESSAGE value="added delete todolists with tasks" />
@@ -552,6 +551,7 @@
     <MESSAGE value="Added AppWithRedux.tsx" />
     <MESSAGE value="Changed types in todolists-reducer.ts" />
     <MESSAGE value="Added Redux store" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Redux store" />
+    <MESSAGE value="Changed tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed tests" />
   </component>
 </project>
