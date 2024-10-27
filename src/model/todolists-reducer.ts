@@ -1,5 +1,5 @@
 import {v1} from "uuid";
-import {FilterValuesType, TodolistType} from "../app/App";
+
 // Типизация:
 /*export type RemoveTodolistActionType = {
     type: 'REMOVE-TODOLIST'
@@ -27,6 +27,13 @@ export type ChangeTodolistFilterActionType = {
         filter: FilterValuesType
     }
 }*/
+export type TodolistType = {
+    id: string
+    title: string
+    filter: FilterValuesType
+}
+
+export type FilterValuesType = 'All' | 'Active' | 'Completed'
 // Автоматическая типизация:
 export type RemoveTodolistActionType = ReturnType<typeof removeTodolistAC>
 export type AddTodolistActionType = ReturnType<typeof addTodolistAC>

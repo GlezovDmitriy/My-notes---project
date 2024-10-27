@@ -1,5 +1,5 @@
 import React, {ChangeEvent, ChangeEventHandler, useRef, useState} from "react";
-import {FilterValuesType, TaskType} from "./app/App";
+
 //import {Button} from "./components/Button";
 import {log} from "util";
 import {Simulate} from "react-dom/test-utils";
@@ -9,9 +9,13 @@ import {EditableSpan} from "./components/EditableSpan";
 import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
 import Button from '@mui/material/Button'
+import {TaskType} from "./model/tasks-reducer";
+import {FilterValuesType, TodolistType} from "./model/todolists-reducer";
+import {FilterTasksButtons} from "./FilterTasksButtons";
 
 
 export type PropsType = {
+    todolist: TodolistType
     title: string
     todolistId: string
     tasks: TaskType[]
@@ -24,7 +28,7 @@ export type PropsType = {
     updateTask: (todolistId: string, taskId: string, title: string) => void
     updateTodolist: (todolistId: string, title: string) => void
 }
-export const Todolist = ({
+export const Todolist = ({todolist,
                              title,
                              todolistId,
                              changeTaskStatus,
@@ -39,22 +43,20 @@ export const Todolist = ({
                          }: PropsType) => {
     //const inputRef = useRef<HTMLInputElement | null>(null) /*через useRef*/
 
-    const changeFilterTasksHandler = (filter: FilterValuesType) => {
-        changeFilter(filter, todolistId)
-    }
+
     const removeTodolistHandler=()=>{
-        removeTodolist(todolistId)
+        removeTodolist(todolist.id)
     }
     const addTaskCallback = (title: string) => {
-        addTask(title, todolistId)
+        addTask(title, todolist.id)
     }
     const updateTodolistHandler = (title: string) => {
-        updateTodolist(todolistId, title)
+        updateTodolist(todolist.id, title)
     }
     return (
         <div>
             <div className={'todolist-title-container'}>
-                <EditableSpan value={title} onChange={updateTodolistHandler}/>
+                <EditableSpan value={todolist.title} onChange={updateTodolistHandler}/>
 
                 {/*<Button title={'X'} onClick={removeTodolistHandler}/>*/}
                 {/*из MUI:*/}
@@ -84,14 +86,14 @@ export const Todolist = ({
                 <ul>
                     {tasks.map(task => {
                         const removeTaskHandler = () => {
-                            removeTask(task.id, todolistId)
+                            removeTask(task.id, todolist.id)
                         }
                         const changeTaskStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
                             const newStatusValue = e.currentTarget.checked
-                            changeTaskStatus(task.id, newStatusValue, todolistId)
+                            changeTaskStatus(task.id, newStatusValue, todolist.id)
                         }
                         const changeTaskTitleHandler = (title: string) => {
-                            updateTask(todolistId, task.id, title)
+                            updateTask(todolist.id, task.id, title)
                         }
                         return (
                             <li key={task.id}
@@ -123,21 +125,7 @@ export const Todolist = ({
                 {/* <Button className={filter === 'Completed' ? 'active-filter' : ''}
                         title={'Completed'}
                         onClick={() => changeFilterTasksHandler('Completed')}/>*/}
-                <Button size="small"
-                        variant="outlined"
-                        onClick={() => changeFilterTasksHandler('All')}>
-                    All
-                </Button>
-                <Button size="small"
-                        variant="outlined"
-                        onClick={() => changeFilterTasksHandler('Active')}>
-                    Active
-                </Button>
-                <Button size="small"
-                        variant="outlined"
-                        onClick={() => changeFilterTasksHandler('Completed')}>
-                    Completed
-                </Button>
+                <FilterTasksButtons todolist={todolist}/>
 
             </div>
         </div>

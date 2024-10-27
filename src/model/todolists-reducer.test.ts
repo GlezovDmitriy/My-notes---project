@@ -3,10 +3,10 @@ import {
     changeTodolistFilterAC,
     changeTodolistTitleAC,
     removeTodolistAC,
-    todolistsReducer
+    todolistsReducer, TodolistType
 } from './todolists-reducer'
 import { v1 } from 'uuid'
-import { TodolistType } from '../app/App'
+
 let todolistId1: string
 let todolistId2: string
 let startState: TodolistType[] = []
