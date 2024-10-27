@@ -8,6 +8,7 @@ export const getTheme = (themeMode: ThemeMode) => {
             primary: {
                 main: '#087EA4',
             },
+
         },
     })
 }

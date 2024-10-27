@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Changed tests">
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Added themes">
+      <change afterPath="$PROJECT_DIR$/src/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/theme/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/theme/theme.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -67,7 +69,7 @@
       <recent name="E:\it-incubator\My notes-project\src\app" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.correct todolist should change its name">
+  <component name="RunManager" selected="npm.start">
     <configuration name="correct filter of todolist should be changed (1)" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -194,7 +196,8 @@
       <workItem from="1729537964904" duration="2227000" />
       <workItem from="1729625951448" duration="2175000" />
       <workItem from="1729714097999" duration="3405000" />
-      <workItem from="1729800759898" duration="601000" />
+      <workItem from="1729800759898" duration="4181000" />
+      <workItem from="1730045430125" duration="3497000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -508,7 +511,23 @@
       <option name="project" value="LOCAL" />
       <updated>1729714804183</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Added app-reducer">
+      <option name="closed" value="true" />
+      <created>1729802863347</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1729802863347</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Added themes">
+      <option name="closed" value="true" />
+      <created>1729805480783</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1729805480783</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,8 +546,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added TasksType" />
-    <MESSAGE value="changed functions for todolist" />
     <MESSAGE value="added delete todolists with tasks" />
     <MESSAGE value="added AddItemForm component" />
     <MESSAGE value="added newTodolist with tasks" />
@@ -552,6 +569,8 @@
     <MESSAGE value="Changed types in todolists-reducer.ts" />
     <MESSAGE value="Added Redux store" />
     <MESSAGE value="Changed tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed tests" />
+    <MESSAGE value="Added app-reducer" />
+    <MESSAGE value="Added themes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added themes" />
   </component>
 </project>
