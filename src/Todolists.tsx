@@ -14,21 +14,19 @@ import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksTyp
 
 export const Todolists = () => {
     const todolists = useSelector<RootState, Array<TodolistDomainType>>(state => state.todolists as TodolistDomainType[])
-    const tasks = useSelector<RootState, TasksType>(state => state.tasks)
-    const dispatch = useDispatch()
-    const removeTask = (taskId: string, todolistId: string) => {
-        dispatch(removeTaskAC({taskId, todolistId}))
-    }
-    const addTask = (title: string, todolistId: string) => {
-        dispatch(addTaskAC({title, todolistId}))
-    }
 
-    const changeTaskStatus = (taskId: string, isDone: boolean, todolistId: string) => { // ПОРЯДОК ПЕРЕДАЧИ!!!
+    const dispatch = useDispatch()
+   /* const removeTask = (taskId: string, todolistId: string) => {
+        dispatch(removeTaskAC({taskId, todolistId}))
+    }*/
+
+
+    /*const changeTaskStatus = (taskId: string, isDone: boolean, todolistId: string) => { // ПОРЯДОК ПЕРЕДАЧИ!!!
         dispatch(changeTaskStatusAC({taskId, todolistId, isDone}))
     }
     const updateTask = (todolistId: string, taskId: string, title: string) => {
         dispatch(changeTaskTitleAC({taskId, todolistId, title}))
-    }
+    }*/
     const removeTodolist = (todolistId: string) => {
         dispatch(removeTodolistAC(todolistId))
     }
@@ -63,13 +61,13 @@ export const Todolists = () => {
                                     todolistId={tl.id}
                                     title={tl.title}
                                     tasks={taskForTodolist}
-                                    removeTask={removeTask}
-                                    changeFilter={changeFilter}
-                                    addTask={addTask}
-                                    changeTaskStatus={changeTaskStatus}
+                                    /*removeTask={removeTask}*/
+                                    /*changeFilter={changeFilter}*/
+                                    /*addTask={addTask}*/
+                                    /*changeTaskStatus={changeTaskStatus}*/
                                     filter={tl.filter}
                                     removeTodolist={removeTodolist}
-                                    updateTask={updateTask}
+                                    /*updateTask={updateTask}*/
                                     updateTodolist={updateTodolist}
                                 />
                             </Paper>

@@ -7,10 +7,10 @@ type Props = {
 
 }
 export const FilterTasksButtons = ({ todolist }: Props) => {
-    const { filter, todolistId } = todolist
+    const { filter, id } = todolist
     const dispatch = useDispatch()
     const changeFilterTasksHandler = (filter: FilterValuesType) => {
-        dispatch(changeTodolistFilterAC({todolistId, filter }))
+        dispatch(changeTodolistFilterAC({todolistId: id, filter }))
     }
     return (
         <div>

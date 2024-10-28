@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Added Header.tsx">
-      <change afterPath="$PROJECT_DIR$/src/FilterTasksButtons.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Todolists.tsx" afterDir="false" />
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Added Main.tsx and others files">
+      <change afterPath="$PROJECT_DIR$/src/Tasks.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FilterTasksButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/FilterTasksButtons.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/todolists-tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-tasks-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Todolists.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolists.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +198,8 @@
       <workItem from="1729625951448" duration="2175000" />
       <workItem from="1729714097999" duration="3405000" />
       <workItem from="1729800759898" duration="4181000" />
-      <workItem from="1730045430125" duration="9834000" />
+      <workItem from="1730045430125" duration="11960000" />
+      <workItem from="1730143586268" duration="3788000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -543,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730055743795</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Added Main.tsx and others files">
+      <option name="closed" value="true" />
+      <created>1730062358414</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1730062358414</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +564,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added AddItemForm component" />
     <MESSAGE value="added newTodolist with tasks" />
     <MESSAGE value="added update function" />
     <MESSAGE value="added MUI" />
@@ -587,6 +588,7 @@
     <MESSAGE value="Added app-reducer" />
     <MESSAGE value="Added themes" />
     <MESSAGE value="Added Header.tsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Header.tsx" />
+    <MESSAGE value="Added Main.tsx and others files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Main.tsx and others files" />
   </component>
 </project>
