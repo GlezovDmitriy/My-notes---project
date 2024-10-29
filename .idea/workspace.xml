@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Added Tasks.tsx">
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Refactored Tasks.tsx">
+      <change afterPath="$PROJECT_DIR$/src/TodolistTitle.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tasks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tasks.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Todolists.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolists.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +198,7 @@
       <workItem from="1729800759898" duration="4181000" />
       <workItem from="1730045430125" duration="11960000" />
       <workItem from="1730143586268" duration="4174000" />
-      <workItem from="1730228839177" duration="1868000" />
+      <workItem from="1730228839177" duration="3010000" />
     </task>
     <task id="LOCAL-00001" summary="Added Todolist.tsx">
       <option name="closed" value="true" />
@@ -553,7 +552,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730147670375</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Refactored Tasks.tsx">
+      <option name="closed" value="true" />
+      <created>1730231077513</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1730231077513</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +579,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added update function" />
     <MESSAGE value="added MUI" />
     <MESSAGE value="changed styles" />
     <MESSAGE value="added Button from MUI" />
@@ -597,6 +603,7 @@
     <MESSAGE value="Added Header.tsx" />
     <MESSAGE value="Added Main.tsx and others files" />
     <MESSAGE value="Added Tasks.tsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Tasks.tsx" />
+    <MESSAGE value="Refactored Tasks.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored Tasks.tsx" />
   </component>
 </project>

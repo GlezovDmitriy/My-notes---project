@@ -11,6 +11,7 @@ import {FilterValuesType, TodolistType} from "./model/todolists-reducer";
 import {FilterTasksButtons} from "./FilterTasksButtons";
 import {Tasks} from "./Tasks";
 import {useDispatch} from "react-redux";
+import {TodolistTitle} from "./TodolistTitle";
 
 
 export type PropsType = {
@@ -54,15 +55,8 @@ export const Todolist = ({todolist,
     }
     return (
         <div>
-            <div className={'todolist-title-container'}>
-                <EditableSpan value={todolist.title} onChange={updateTodolistHandler}/>
-
-                {/*<Button title={'X'} onClick={removeTodolistHandler}/>*/}
-                {/*из MUI:*/}
-                <IconButton size="small"
-                            onClick={removeTodolistHandler}>
-                    <DeleteIcon />
-                </IconButton>
+            <div >
+                <TodolistTitle todolist={todolist}/>
             </div>
 
             <div>
