@@ -37,18 +37,7 @@ export const Todolists = () => {
         <>
             {
                 todolists.map(tl => {
-                    const allTodolistTasks = tasks[tl.id] || []
-                    let taskForTodolist = allTodolistTasks
-                    if (tl.filter === 'All') {
-                        /*taskForTodolist = tasks.filter(task => !task.isDone && task.isDone)*/
-                        taskForTodolist = allTodolistTasks
-                    }
-                    if (tl.filter === 'Active') {
-                        taskForTodolist = allTodolistTasks.filter(task => task.isDone === false)
-                    }
-                    if (tl.filter === 'Completed') {
-                        taskForTodolist = allTodolistTasks.filter(task => task.isDone === true)
-                    }
+
 
                     const changeFilter = (filter: FilterValuesType, todolistId: string) => {
                         dispatch(changeTodolistFilterAC({todolistId, filter}))
@@ -60,10 +49,10 @@ export const Todolists = () => {
                                     todolist ={tl}
                                     todolistId={tl.id}
                                     title={tl.title}
-                                    tasks={taskForTodolist}
+                                   /* tasks={taskForTodolist}*/
                                     /*removeTask={removeTask}*/
                                     /*changeFilter={changeFilter}*/
-                                    /*addTask={addTask}*/
+
                                     /*changeTaskStatus={changeTaskStatus}*/
                                     filter={tl.filter}
                                     removeTodolist={removeTodolist}

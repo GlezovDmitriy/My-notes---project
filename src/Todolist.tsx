@@ -6,47 +6,48 @@ import {AddItemForm} from "./components/AddItemForm";
 import {EditableSpan} from "./components/EditableSpan";
 import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
-import {TaskType} from "./model/tasks-reducer";
+import {addTaskAC, TaskType} from "./model/tasks-reducer";
 import {FilterValuesType, TodolistType} from "./model/todolists-reducer";
 import {FilterTasksButtons} from "./FilterTasksButtons";
 import {Tasks} from "./Tasks";
+import {useDispatch} from "react-redux";
 
 
 export type PropsType = {
     todolist: TodolistType
     title: string
     todolistId: string
-    tasks: TaskType[]
-    removeTask: (taskId: string, todolistId: string) => void
+    /*tasks: TaskType[]*/
+    /*removeTask: (taskId: string, todolistId: string) => void*/
     /*changeFilter: (filter: FilterValuesType, todolistId: string) => void*/
-    addTask: (title: string, todolistId: string) => void
-    changeTaskStatus: (taskId: string, newStatus: boolean, todolistId: string) => void
+
+    /*changeTaskStatus: (taskId: string, newStatus: boolean, todolistId: string) => void*/
     filter: FilterValuesType
     removeTodolist:(todolistId: string) => void
-    updateTask: (todolistId: string, taskId: string, title: string) => void
+    /*updateTask: (todolistId: string, taskId: string, title: string) => void*/
     updateTodolist: (todolistId: string, title: string) => void
 }
 export const Todolist = ({todolist,
                              title,
                              todolistId,
-                             changeTaskStatus,
-                             tasks,
-                             addTask,
-                             removeTask,
+                             /*changeTaskStatus,
+                             tasks,*/
+
+
                              /*changeFilter,*/
                              filter,
                              removeTodolist,
-                             updateTask,
+                             /*updateTask,*/
                              updateTodolist
                          }: PropsType) => {
     //const inputRef = useRef<HTMLInputElement | null>(null) /*через useRef*/
-
+    const dispatch = useDispatch()
 
     const removeTodolistHandler=()=>{
         removeTodolist(todolist.id)
     }
     const addTaskCallback = (title: string) => {
-        addTask(title, todolist.id)
+        dispatch(addTaskAC({title, todolistId: todolist.id}))
     }
     const updateTodolistHandler = (title: string) => {
         updateTodolist(todolist.id, title)

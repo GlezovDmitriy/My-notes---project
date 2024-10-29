@@ -6,6 +6,7 @@ import {TodolistType} from "./model/todolists-reducer";
 import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksType} from "./model/tasks-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "./app/store";
+import {Checkbox} from "@mui/material";
 type Props = {
     todolist: TodolistType,
 }
@@ -18,24 +19,30 @@ export const Tasks = ({ todolist }: Props) => {
     const changeTaskStatus = (taskId: string, newStatusValue: boolean, todolistId: string) => {
         dispatch(changeTaskStatusAC({taskId, isDone:newStatusValue, todolistId}))
     }
-    const changeTaskTitleHandler = (title: string) => {
-        //updateTask(todolist.id, task.id, title)
-        dispatch(changeTaskTitleAC({taskId:task.id, todolistId:todolist.id, title}))
-    }
+
     const updateTask = (todolistId: string, taskId: string, title: string) => {
         dispatch(changeTaskTitleAC({ taskId, title, todolistId }))
     }
-    const addTask = (title: string, todolistId: string) => {
-        dispatch(addTaskAC({title, todolistId}))
+    const allTodolistTasks = tasks[todolist.id] || []
+    let taskForTodolist = allTodolistTasks
+    /*if (todolist.filter === 'All') {
+        /!*taskForTodolist = tasks.filter(task => !task.isDone && task.isDone)*!/
+        taskForTodolist = allTodolistTasks
+    }*/
+    if (todolist.filter === 'Active') {
+        taskForTodolist = allTodolistTasks.filter(task => task.isDone === false)
+    }
+    if (todolist.filter === 'Completed') {
+        taskForTodolist = allTodolistTasks.filter(task => task.isDone === true)
     }
 
     return (
         <>
-            {tasks.length === 0 ? (
+            {taskForTodolist.length === 0 ? (
                 <p>Заметок нет!</p>
             ) : (
                 <ul>
-                    {tasks.map(task => {
+                    {taskForTodolist.map(task => {
                         const removeTaskHandler = () => {
                             removeTask(task.id, todolist.id)
 
@@ -52,10 +59,8 @@ export const Tasks = ({ todolist }: Props) => {
                         return (
                             <li key={task.id}
                                 className={task.isDone ? 'is-done' : ''}>
-                                <input
-                                    type="checkbox"
-                                    onChange={changeTaskStatusHandler}
-                                    checked={task.isDone}/>
+
+                                <Checkbox checked={task.isDone} onChange={changeTaskStatusHandler} />
                                 <EditableSpan value={task.title} onChange={changeTaskTitleHandler}/>
                                 {/*<Button onClick={removeTaskHandler} title={'X'}/>*/}
                                 <IconButton size="small"
