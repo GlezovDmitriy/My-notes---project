@@ -7,13 +7,14 @@ import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksTyp
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "./app/store";
 import {Checkbox} from "@mui/material";
+import {Task} from "./Task";
 type Props = {
     todolist: TodolistType,
 }
 export const Tasks = ({ todolist }: Props) => {
-    const dispatch = useDispatch()
+
     const tasks = useSelector<RootState, TasksType>(state => state.tasks)
-    const removeTask = (taskId:string, todolistId:string) => {
+    /*const removeTask = (taskId:string, todolistId:string) => {
         dispatch(removeTaskAC({taskId, todolistId}))
     }
     const changeTaskStatus = (taskId: string, newStatusValue: boolean, todolistId: string) => {
@@ -22,7 +23,7 @@ export const Tasks = ({ todolist }: Props) => {
 
     const updateTask = (todolistId: string, taskId: string, title: string) => {
         dispatch(changeTaskTitleAC({ taskId, title, todolistId }))
-    }
+    }*/
     const allTodolistTasks = tasks[todolist.id] || []
     let taskForTodolist = allTodolistTasks
     /*if (todolist.filter === 'All') {
@@ -43,30 +44,10 @@ export const Tasks = ({ todolist }: Props) => {
             ) : (
                 <ul>
                     {taskForTodolist.map(task => {
-                        const removeTaskHandler = () => {
-                            removeTask(task.id, todolist.id)
-
-                        }
-                        const changeTaskStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
-                            const newStatusValue = e.currentTarget.checked
-                            changeTaskStatus(task.id, newStatusValue, todolist.id)
-
-                        }
-                        const changeTaskTitleHandler = (title: string) => {
-                            updateTask(todolist.id, task.id, title)
-
-                        }
                         return (
                             <li key={task.id}
                                 className={task.isDone ? 'is-done' : ''}>
-
-                                <Checkbox checked={task.isDone} onChange={changeTaskStatusHandler} />
-                                <EditableSpan value={task.title} onChange={changeTaskTitleHandler}/>
-                                {/*<Button onClick={removeTaskHandler} title={'X'}/>*/}
-                                <IconButton size="small"
-                                            onClick={removeTaskHandler}>
-                                    <DeleteIcon />
-                                </IconButton>
+                                <Task todolist={todolist} task={task}/>
                             </li>
                         )
                     })

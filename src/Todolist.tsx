@@ -1,13 +1,9 @@
-import React, {ChangeEvent} from "react";
+import React from "react";
 
 //import {Button} from "./components/Button";
-import {Simulate} from "react-dom/test-utils";
 import {AddItemForm} from "./components/AddItemForm";
-import {EditableSpan} from "./components/EditableSpan";
-import IconButton from '@mui/material/IconButton'
-import DeleteIcon from '@mui/icons-material/Delete'
-import {addTaskAC, TaskType} from "./model/tasks-reducer";
-import {FilterValuesType, TodolistType} from "./model/todolists-reducer";
+import {addTaskAC} from "./model/tasks-reducer";
+import {TodolistType} from "./model/todolists-reducer";
 import {FilterTasksButtons} from "./FilterTasksButtons";
 import {Tasks} from "./Tasks";
 import {useDispatch} from "react-redux";
@@ -16,50 +12,47 @@ import {TodolistTitle} from "./TodolistTitle";
 
 export type PropsType = {
     todolist: TodolistType
-    title: string
+    /*title: string
     todolistId: string
-    /*tasks: TaskType[]*/
-    /*removeTask: (taskId: string, todolistId: string) => void*/
-    /*changeFilter: (filter: FilterValuesType, todolistId: string) => void*/
+    /!*tasks: TaskType[]*!/
+    /!*removeTask: (taskId: string, todolistId: string) => void*!/
+    /!*changeFilter: (filter: FilterValuesType, todolistId: string) => void*!/
 
-    /*changeTaskStatus: (taskId: string, newStatus: boolean, todolistId: string) => void*/
+    /!*changeTaskStatus: (taskId: string, newStatus: boolean, todolistId: string) => void*!/
     filter: FilterValuesType
-    removeTodolist:(todolistId: string) => void
-    /*updateTask: (todolistId: string, taskId: string, title: string) => void*/
-    updateTodolist: (todolistId: string, title: string) => void
+    removeTodolist: (todolistId: string) => void
+    /!*updateTask: (todolistId: string, taskId: string, title: string) => void*!/
+    updateTodolist: (todolistId: string, title: string) => void*/
 }
-export const Todolist = ({todolist,
-                             title,
+export const Todolist = ({
+                             todolist,
+                             /*title,
                              todolistId,
-                             /*changeTaskStatus,
-                             tasks,*/
+                             /!*changeTaskStatus,
+                             tasks,*!/
 
 
-                             /*changeFilter,*/
+                             /!*changeFilter,*!/
                              filter,
                              removeTodolist,
-                             /*updateTask,*/
-                             updateTodolist
+                             /!*updateTask,*!/
+                             updateTodolist*/
                          }: PropsType) => {
     //const inputRef = useRef<HTMLInputElement | null>(null) /*через useRef*/
     const dispatch = useDispatch()
 
-    const removeTodolistHandler=()=>{
+    /*const removeTodolistHandler = () => {
         removeTodolist(todolist.id)
-    }
+    }*/
     const addTaskCallback = (title: string) => {
         dispatch(addTaskAC({title, todolistId: todolist.id}))
     }
-    const updateTodolistHandler = (title: string) => {
+    /*const updateTodolistHandler = (title: string) => {
         updateTodolist(todolist.id, title)
-    }
+    }*/
     return (
-        <div>
-            <div >
-                <TodolistTitle todolist={todolist}/>
-            </div>
-
-            <div>
+        <>
+            <TodolistTitle todolist={todolist}/>
                 {/*через useRef*/}
                 {/* <input ref={inputRef}/>
                 <Button title={'+'} onClick={ ()=>{
@@ -71,11 +64,8 @@ export const Todolist = ({todolist,
                     }
                 }} />*/}
                 {/*через useState*/}
-               <AddItemForm addItem={addTaskCallback}/>
-            </div>
+                <AddItemForm addItem={addTaskCallback}/>
             <Tasks todolist={todolist}/>
-
-            <div>
                 {/*<Button className={filter === 'All' ? 'active-filter' : ''}
                         title={'All'}
                         onClick={() => changeFilterTasksHandler('All')}/>*/}
@@ -86,8 +76,6 @@ export const Todolist = ({todolist,
                         title={'Completed'}
                         onClick={() => changeFilterTasksHandler('Completed')}/>*/}
                 <FilterTasksButtons todolist={todolist}/>
-
-            </div>
-        </div>
+        </>
     )
 }

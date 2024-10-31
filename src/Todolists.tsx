@@ -47,17 +47,17 @@ export const Todolists = () => {
                             <Paper sx={{m: '10px'}}>
                                 <Todolist
                                     todolist ={tl}
-                                    todolistId={tl.id}
-                                    title={tl.title}
+                                    /*todolistId={tl.id}
+                                    title={tl.title}*/
                                    /* tasks={taskForTodolist}*/
                                     /*removeTask={removeTask}*/
                                     /*changeFilter={changeFilter}*/
 
                                     /*changeTaskStatus={changeTaskStatus}*/
-                                    filter={tl.filter}
+                                    /*filter={tl.filter}
                                     removeTodolist={removeTodolist}
-                                    /*updateTask={updateTask}*/
-                                    updateTodolist={updateTodolist}
+                                    /!*updateTask={updateTask}*!/
+                                    updateTodolist={updateTodolist}*/
                                 />
                             </Paper>
                         </Grid>
