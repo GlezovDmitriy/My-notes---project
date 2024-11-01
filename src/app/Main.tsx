@@ -1,18 +1,18 @@
 import React from 'react';
 import {Container, Grid} from "@mui/material";
-import {AddItemForm} from "./components/AddItemForm";
+import {AddItemForm} from "../common/components/AddItemForm";
 import {
     addTodolistAC,
     changeTodolistFilterAC,
     changeTodolistTitleAC, FilterValuesType,
     removeTodolistAC, TodolistDomainType
-} from "./model/todolists-reducer";
+} from "../features/todolists/model/todolists-reducer";
 import Paper from "@mui/material/Paper";
-import {Todolist} from "./Todolist";
-import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksType} from "./model/tasks-reducer";
+import {Todolist} from "../features/ui/Todolists/Todolist/Todolist";
+import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksType} from "../features/todolists/model/tasks-reducer";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "./app/store";
-import Todolists from "./Todolists";
+import {RootState} from "./store";
+import Todolists from "../features/ui/Todolists/Todolists";
 
 export const Main = () => {
     const dispatch = useDispatch()

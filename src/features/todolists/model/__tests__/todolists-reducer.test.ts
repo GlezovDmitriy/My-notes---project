@@ -4,7 +4,7 @@ import {
     changeTodolistTitleAC,
     removeTodolistAC,
     todolistsReducer, TodolistType
-} from './todolists-reducer'
+} from '../todolists-reducer'
 import { v1 } from 'uuid'
 
 let todolistId1: string
@@ -38,13 +38,14 @@ test('correct todolist should be added', () => {
             title: 'New Todolist',
         },
     } as const*/
-    const endState = todolistsReducer(startState, addTodolistAC('New Todolist'))
+    const newTitle = 'New Todolist'
+    const endState = todolistsReducer(startState, addTodolistAC(newTitle))
 
     // 3. Проверяем, что наши действия (изменения state) соответствуют ожиданию
     // в массиве останется один тудулист
     expect(endState.length).toBe(3)
     // удалится нужный тудулист, а не любой
-    expect(endState[2].title).toBe('New Todolist')
+    expect(endState[0].title).toBe('New Todolist')
 })
 test('correct todolist should change its name', () => {
 

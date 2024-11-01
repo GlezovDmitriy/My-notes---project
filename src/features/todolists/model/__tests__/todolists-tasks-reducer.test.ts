@@ -1,6 +1,6 @@
 
-import {addTodolistAC, todolistsReducer, TodolistType} from "./todolists-reducer";
-import {tasksReducer, TasksType} from "./tasks-reducer";
+import {addTodolistAC, todolistsReducer, TodolistType} from "../todolists-reducer";
+import {tasksReducer, TasksType} from "../tasks-reducer";
 
 test('ids should be equals', () => {
     const startTasksState: TasksType = {}

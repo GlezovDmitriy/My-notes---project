@@ -5,8 +5,8 @@ import {useSelector} from "react-redux";
 import {RootState} from "./store";
 import {ThemeMode} from "./app-reducer";
 import {getTheme} from "../common/theme/theme";
-import {Header} from "../Header";
-import {Main} from "../Main";
+import {Header} from "../common/components/Header";
+import {Main} from "./Main";
 
 
 export const App = () => {

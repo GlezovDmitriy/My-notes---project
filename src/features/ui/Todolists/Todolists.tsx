@@ -4,13 +4,13 @@ import {
     FilterValuesType,
     removeTodolistAC,
     TodolistDomainType
-} from "./model/todolists-reducer";
+} from "../../todolists/model/todolists-reducer";
 import {Grid} from "@mui/material";
 import Paper from "@mui/material/Paper";
-import {Todolist} from "./Todolist";
+import {Todolist} from "./Todolist/Todolist";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "./app/store";
-import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksType} from "./model/tasks-reducer";
+import {RootState} from "../../../app/store";
+import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksType} from "../../todolists/model/tasks-reducer";
 
 export const Todolists = () => {
     const todolists = useSelector<RootState, Array<TodolistDomainType>>(state => state.todolists as TodolistDomainType[])

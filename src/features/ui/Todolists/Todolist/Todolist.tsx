@@ -1,13 +1,13 @@
 import React from "react";
 
 //import {Button} from "./components/Button";
-import {AddItemForm} from "./components/AddItemForm";
-import {addTaskAC} from "./model/tasks-reducer";
-import {TodolistType} from "./model/todolists-reducer";
-import {FilterTasksButtons} from "./FilterTasksButtons";
-import {Tasks} from "./Tasks";
+import {AddItemForm} from "../../../../common/components/AddItemForm";
+import {addTaskAC} from "../../../todolists/model/tasks-reducer";
+import {TodolistType} from "../../../todolists/model/todolists-reducer";
+import {FilterTasksButtons} from "./FilterTasksButtons/FilterTasksButtons";
+import {Tasks} from "./Tasks/Tasks";
 import {useDispatch} from "react-redux";
-import {TodolistTitle} from "./TodolistTitle";
+import {TodolistTitle} from "./TodolistTitle/TodolistTitle";
 
 
 export type PropsType = {

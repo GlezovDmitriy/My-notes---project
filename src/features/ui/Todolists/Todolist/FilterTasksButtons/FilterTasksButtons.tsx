@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from "@mui/material/Button";
-import {changeTodolistFilterAC, FilterValuesType, TodolistType} from "./model/todolists-reducer";
+import {changeTodolistFilterAC, FilterValuesType, TodolistType} from "../../../../todolists/model/todolists-reducer";
 import {useDispatch} from "react-redux";
 type Props = {
     todolist: TodolistType,
