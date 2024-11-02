@@ -7,10 +7,12 @@ import {ThemeMode} from "./app-reducer";
 import {getTheme} from "../common/theme/theme";
 import {Header} from "../common/components/Header";
 import {Main} from "./Main";
+import {useAppSelector} from "../common/hooks/useAppSelector";
+import {selectThemeMode} from "./appSelectors";
 
 
 export const App = () => {
-    const themeMode = useSelector<RootState, ThemeMode>(state => state.app.themeMode)
+    const themeMode = useAppSelector(selectThemeMode)
     return (
         <div>
             <ThemeProvider theme={getTheme(themeMode)}>

@@ -8,12 +8,14 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../../../app/store";
 import {Checkbox} from "@mui/material";
 import {Task} from "./Task/Task";
+import {useAppSelector} from "../../../../../common/hooks/useAppSelector";
+import {selectTasks} from "../../../../todolists/model/tasksSelectors";
 type Props = {
     todolist: TodolistType,
 }
 export const Tasks = ({ todolist }: Props) => {
 
-    const tasks = useSelector<RootState, TasksType>(state => state.tasks)
+    const tasks = useAppSelector(selectTasks)
     /*const removeTask = (taskId:string, todolistId:string) => {
         dispatch(removeTaskAC({taskId, todolistId}))
     }

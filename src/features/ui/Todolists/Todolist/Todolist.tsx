@@ -8,6 +8,7 @@ import {FilterTasksButtons} from "./FilterTasksButtons/FilterTasksButtons";
 import {Tasks} from "./Tasks/Tasks";
 import {useDispatch} from "react-redux";
 import {TodolistTitle} from "./TodolistTitle/TodolistTitle";
+import {useAppDispatch} from "../../../../common/hooks/useAppDispatch";
 
 
 export type PropsType = {
@@ -39,7 +40,7 @@ export const Todolist = ({
                              updateTodolist*/
                          }: PropsType) => {
     //const inputRef = useRef<HTMLInputElement | null>(null) /*через useRef*/
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     /*const removeTodolistHandler = () => {
         removeTodolist(todolist.id)

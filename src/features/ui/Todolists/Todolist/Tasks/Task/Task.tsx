@@ -6,12 +6,13 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import {TodolistType} from "../../../../../todolists/model/todolists-reducer";
 import {changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TaskType} from "../../../../../todolists/model/tasks-reducer";
 import {useDispatch} from "react-redux";
+import {useAppDispatch} from "../../../../../../common/hooks/useAppDispatch";
 type Props = {
     todolist: TodolistType,
     task: TaskType
 }
 export const Task = ({todolist,task}:Props) => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const removeTaskHandler = () => {
        // removeTask(task.id, todolist.id)
         dispatch(removeTaskAC({taskId:task.id, todolistId: todolist.id}))

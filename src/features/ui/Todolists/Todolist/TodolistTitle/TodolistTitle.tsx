@@ -4,13 +4,14 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {changeTodolistTitleAC, removeTodolistAC, TodolistType} from "../../../../todolists/model/todolists-reducer";
 import {useDispatch} from "react-redux";
+import {useAppDispatch} from "../../../../../common/hooks/useAppDispatch";
 type Props = {
     todolist: TodolistType
 }
 export const TodolistTitle = ({ todolist }:Props) => {
     const { title, id } = todolist
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const removeTodolistHandler = () => {
         dispatch(removeTodolistAC(id))

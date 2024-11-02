@@ -1,21 +1,12 @@
 import React from 'react';
 import {Container, Grid} from "@mui/material";
 import {AddItemForm} from "../common/components/AddItemForm";
-import {
-    addTodolistAC,
-    changeTodolistFilterAC,
-    changeTodolistTitleAC, FilterValuesType,
-    removeTodolistAC, TodolistDomainType
-} from "../features/todolists/model/todolists-reducer";
-import Paper from "@mui/material/Paper";
-import {Todolist} from "../features/ui/Todolists/Todolist/Todolist";
-import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksType} from "../features/todolists/model/tasks-reducer";
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "./store";
+import {addTodolistAC} from "../features/todolists/model/todolists-reducer";
 import Todolists from "../features/ui/Todolists/Todolists";
+import {useAppDispatch} from "../common/hooks/useAppDispatch";
 
 export const Main = () => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const addTodolist = (title: string) => {
         const action = addTodolistAC(title) // чтобы не было ошибки из-за
         //генерациии id 2 раза - выносится action - id сгенерируется 1 раз

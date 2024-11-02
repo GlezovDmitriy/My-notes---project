@@ -15,6 +15,7 @@ export const store = legacy_createStore(rootReducer)
 
 // определить автоматически тип всего объекта состояния
 export type RootState = ReturnType<typeof rootReducer>
+export type AppDispatch = typeof store.dispatch
 
 // а это, чтобы можно было в консоли браузера обращаться к store в любой момент
 // @ts-ignore

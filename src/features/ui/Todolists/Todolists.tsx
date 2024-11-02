@@ -11,11 +11,14 @@ import {Todolist} from "./Todolist/Todolist";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../app/store";
 import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksType} from "../../todolists/model/tasks-reducer";
+import {useAppDispatch} from "../../../common/hooks/useAppDispatch";
+import {useAppSelector} from "../../../common/hooks/useAppSelector";
+import {selectTodolists} from "../../todolists/model/todolistsSelectors";
 
 export const Todolists = () => {
-    const todolists = useSelector<RootState, Array<TodolistDomainType>>(state => state.todolists as TodolistDomainType[])
+    const todolists = useAppSelector(selectTodolists)
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
    /* const removeTask = (taskId: string, todolistId: string) => {
         dispatch(removeTaskAC({taskId, todolistId}))
     }*/

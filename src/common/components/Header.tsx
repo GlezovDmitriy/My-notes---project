@@ -7,15 +7,17 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../app/store";
 import {changeThemeAC, ThemeMode} from "../../app/app-reducer";
 import {getTheme} from "../theme/theme";
+import {useAppDispatch} from "../hooks/useAppDispatch";
+import {useAppSelector} from "../hooks/useAppSelector";
 
 export const Header = () => {
-    const themeMode = useSelector<RootState, ThemeMode>(state => state.app.themeMode)
+    const themeMode = useAppSelector<RootState, ThemeMode>(state => state.app.themeMode)
     //const [themeMode, setThemeMode] = useState<ThemeMode>('light')
     getTheme(themeMode)
     const changeModeHandler = () => {
         dispatch(changeThemeAC(themeMode === 'light' ? 'dark' : 'light'))
     }
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     return (
         <AppBar position="static" sx={{mb: '30px'}}>
             <Toolbar>
