@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="Folder structure has changed">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/instance/instance.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/types/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/todolists/api/taskApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/todolists/api/tasksApi.types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/todolists/api/todolistsApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/todolists/api/todolistsApi.types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="server connected">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/AppHttpRequests.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/AppHttpRequests.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,15 +209,7 @@
       <workItem from="1732042382875" duration="5082000" />
       <workItem from="1732131657139" duration="9041000" />
       <workItem from="1732216916843" duration="3516000" />
-      <workItem from="1732304697146" duration="1518000" />
-    </task>
-    <task id="LOCAL-00001" summary="Added Todolist.tsx">
-      <option name="closed" value="true" />
-      <created>1726166730422</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1726166730422</updated>
+      <workItem from="1732304697146" duration="2385000" />
     </task>
     <task id="LOCAL-00002" summary="Added Button component">
       <option name="closed" value="true" />
@@ -612,7 +595,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730580379269</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="server connected">
+      <option name="closed" value="true" />
+      <created>1732306721276</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1732306721276</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,7 +622,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added one test" />
     <MESSAGE value="added test to add todolist" />
     <MESSAGE value="added test to update title todolist" />
     <MESSAGE value="added types for action" />
@@ -656,6 +646,7 @@
     <MESSAGE value="Added TodolistTitle.tsx" />
     <MESSAGE value="decomposed the code" />
     <MESSAGE value="Folder structure has changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Folder structure has changed" />
+    <MESSAGE value="server connected" />
+    <option name="LAST_COMMIT_MESSAGE" value="server connected" />
   </component>
 </project>
