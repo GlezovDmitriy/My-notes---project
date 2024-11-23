@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="server connected">
+    <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="&quot;Remove .env from repository and add to .gitignore&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,15 +209,7 @@
       <workItem from="1732042382875" duration="5082000" />
       <workItem from="1732131657139" duration="9041000" />
       <workItem from="1732216916843" duration="3516000" />
-      <workItem from="1732304697146" duration="2385000" />
-    </task>
-    <task id="LOCAL-00002" summary="Added Button component">
-      <option name="closed" value="true" />
-      <created>1726345902176</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1726345902176</updated>
+      <workItem from="1732304697146" duration="4840000" />
     </task>
     <task id="LOCAL-00003" summary="Added Button component">
       <option name="closed" value="true" />
@@ -603,7 +595,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732306721276</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="&quot;Remove .env from repository and add to .gitignore&quot;">
+      <option name="closed" value="true" />
+      <created>1732307536903</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1732307536903</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -622,7 +622,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added test to add todolist" />
     <MESSAGE value="added test to update title todolist" />
     <MESSAGE value="added types for action" />
     <MESSAGE value="added action creators" />
@@ -647,6 +646,7 @@
     <MESSAGE value="decomposed the code" />
     <MESSAGE value="Folder structure has changed" />
     <MESSAGE value="server connected" />
-    <option name="LAST_COMMIT_MESSAGE" value="server connected" />
+    <MESSAGE value="&quot;Remove .env from repository and add to .gitignore&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Remove .env from repository and add to .gitignore&quot;" />
   </component>
 </project>
