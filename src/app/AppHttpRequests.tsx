@@ -19,6 +19,7 @@ import {
 } from "../features/todolists/api/tasksApi.types";
 import {todolistsApi} from "../features/todolists/api/todolistsApi";
 import {tasksApi} from "../features/todolists/api/taskApi";
+import {TaskStatus} from "../common/enums/enums";
 
 
 export const AppHttpRequests = () => {
@@ -93,7 +94,7 @@ export const AppHttpRequests = () => {
 
     const changeTaskStatusHandler = (e: ChangeEvent<HTMLInputElement>, task: DomainTask) => {
         const todolistId = task.todoListId;
-        let status = e.currentTarget.checked ? 2 : 0
+        let status = e.currentTarget.checked ? TaskStatus.Completed : TaskStatus.New
         const model: UpdateTaskModel = {
             status,
             title: task.title,
