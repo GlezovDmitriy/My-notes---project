@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="&quot;Remove .env from repository and add to .gitignore&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/todolists/api/taskApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/api/taskApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/ui/Todolists/Todolists.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ui/Todolists/Todolists.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +214,7 @@
       <workItem from="1732304697146" duration="6123000" />
       <workItem from="1732452111730" duration="1339000" />
       <workItem from="1732736405734" duration="4426000" />
-      <workItem from="1733080623470" duration="602000" />
+      <workItem from="1733080623470" duration="2652000" />
     </task>
     <task id="LOCAL-00003" summary="Added Button component">
       <option name="closed" value="true" />

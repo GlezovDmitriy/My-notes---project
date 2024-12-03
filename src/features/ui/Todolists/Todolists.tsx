@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     changeTodolistFilterAC, changeTodolistTitleAC,
     FilterValuesType,
-    removeTodolistAC,
+    removeTodolistAC, setTodolistsAC,
     TodolistDomainType
 } from "../../todolists/model/todolists-reducer";
 import {Grid} from "@mui/material";
@@ -14,10 +14,15 @@ import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksTyp
 import {useAppDispatch} from "../../../common/hooks/useAppDispatch";
 import {useAppSelector} from "../../../common/hooks/useAppSelector";
 import {selectTodolists} from "../../todolists/model/todolistsSelectors";
+import {todolistsApi} from "../../todolists/api/todolistsApi";
 
 export const Todolists = () => {
     const todolists = useAppSelector(selectTodolists)
-
+    useEffect(() => {
+        todolistsApi.getTodolists().then(res => {
+            dispatch(setTodolistsAC(res.data))
+        })
+    }, [])
     const dispatch = useAppDispatch()
    /* const removeTask = (taskId: string, todolistId: string) => {
         dispatch(removeTaskAC({taskId, todolistId}))
