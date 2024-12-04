@@ -1,5 +1,8 @@
 import {v1} from "uuid";
 import {Todolist} from "../api/todolistsApi.types";
+import {RootState} from "../../../app/store";
+import {Dispatch} from "redux";
+import {todolistsApi} from "../api/todolistsApi";
 
 // Типизация:
 /*export type RemoveTodolistActionType = {
@@ -40,7 +43,7 @@ export type RemoveTodolistActionType = ReturnType<typeof removeTodolistAC>
 export type AddTodolistActionType = ReturnType<typeof addTodolistAC>
 export type ChangeTodolistTitleActionType = ReturnType<typeof changeTodolistTitleAC>
 export type ChangeTodolistFilterActionType = ReturnType<typeof changeTodolistFilterAC>
-
+export type SetTodolistsActionType = ReturnType<typeof setTodolistsAC>
 export type ActionsType =
     | RemoveTodolistActionType
     | AddTodolistActionType
@@ -108,4 +111,21 @@ export const setTodolistsAC = (todolists: Todolist[]) => {
     return { type: 'SET-TODOLISTS', todolists } as const
 }
 
-export type SetTodolistsActionType = ReturnType<typeof setTodolistsAC>
+/*
+export const fetchTodolistsThunk = (dispatch: Dispatch, getState: () => RootState) => {
+    // внутри санки можно делать побочные эффекты (запросы на сервер)
+    todolistsApi.getTodolists().then(res => {
+        // и диспатчить экшены (action) или другие санки (thunk)
+        dispatch(setTodolistsAC(res.data))
+    })
+}*/
+export const fetchTodolistsThunk = (dispatch: Dispatch, getState: () => RootState) => {
+    return (dispatch, getState)=>{
+        todolistsApi.getTodolists().then(res => {
+            // и диспатчить экшены (action) или другие санки (thunk)
+            dispatch(setTodolistsAC(res.data))
+        })
+    }
+    // внутри санки можно делать побочные эффекты (запросы на сервер)
+
+}

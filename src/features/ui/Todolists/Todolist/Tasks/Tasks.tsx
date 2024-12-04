@@ -7,7 +7,7 @@ import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksTyp
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../../../app/store";
 import {Checkbox} from "@mui/material";
-import {Task} from "./Task/Task";
+import {Task} from "../TodolistTitle/Task/Task";
 import {useAppSelector} from "../../../../../common/hooks/useAppSelector";
 import {selectTasks} from "../../../../todolists/model/tasksSelectors";
 type Props = {
