@@ -9,15 +9,16 @@ import {Header} from "../common/components/Header";
 import {Main} from "./Main";
 import {useAppSelector} from "../common/hooks/useAppSelector";
 import {selectThemeMode} from "./appSelectors";
-import {fetchTodolistsThunk} from "../features/todolists/model/todolists-reducer";
+import { getTodolistsTC} from "../features/todolists/model/todolists-reducer";
 import {useAppDispatch} from "common/hooks/useAppDispatch";
 
 
 export const App = () => {
     const dispatch = useAppDispatch();
     const themeMode = useAppSelector(selectThemeMode)
+
     useEffect(() => {
-        dispatch(fetchTodolistsThunk)
+        dispatch(getTodolistsTC())
     }, [])
     return (
         <div>

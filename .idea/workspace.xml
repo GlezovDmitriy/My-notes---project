@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="&quot;Remove .env from repository and add to .gitignore&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/todolists/model/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/todolists/model/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/todolists-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/ui/Todolists/Todolists.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ui/Todolists/Todolists.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +68,11 @@
       <recent name="E:\it-incubator\My notes-project\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\it-incubator\My notes-project\src\features\ui\Todolists\Todolist\TodolistTitle" />
       <recent name="E:\it-incubator\My notes-project\src\features\todolists\model\__tests__" />
       <recent name="E:\it-incubator\My notes-project\src\features\todolists\model\__tests__ " />
       <recent name="E:\it-incubator\My notes-project\src\features\todolists" />
       <recent name="E:\it-incubator\My notes-project\src\common\components" />
-      <recent name="E:\it-incubator\My notes-project\src\app" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -215,6 +217,9 @@
       <workItem from="1732452111730" duration="1339000" />
       <workItem from="1732736405734" duration="4426000" />
       <workItem from="1733080623470" duration="2652000" />
+      <workItem from="1733255770942" duration="12751000" />
+      <workItem from="1733426736553" duration="3064000" />
+      <workItem from="1733574657108" duration="5648000" />
     </task>
     <task id="LOCAL-00003" summary="Added Button component">
       <option name="closed" value="true" />

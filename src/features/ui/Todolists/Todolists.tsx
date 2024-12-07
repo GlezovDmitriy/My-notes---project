@@ -18,12 +18,14 @@ import {todolistsApi} from "../../todolists/api/todolistsApi";
 
 export const Todolists = () => {
     const todolists = useAppSelector(selectTodolists)
+    const dispatch = useAppDispatch()
+
     useEffect(() => {
         todolistsApi.getTodolists().then(res => {
             dispatch(setTodolistsAC(res.data))
         })
     }, [])
-    const dispatch = useAppDispatch()
+
    /* const removeTask = (taskId: string, todolistId: string) => {
         dispatch(removeTaskAC({taskId, todolistId}))
     }*/

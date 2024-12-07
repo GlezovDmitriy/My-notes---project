@@ -50,7 +50,7 @@ export type ActionsType =
     | ChangeTodolistTitleActionType
     | ChangeTodolistFilterActionType
 | SetTodolistsActionType
-export type TodolistDomainType = TodolistType & {
+export type TodolistDomainType = Todolist & {
     filter: FilterValuesType
 }
 let todolistID1 = v1()
@@ -67,10 +67,10 @@ switch (action.type) {
         return state.filter(tl => tl.id !== action.payload.id)
     }
     case 'ADD-TODOLIST':{
-        const newTodolist = {
+        const newTodolist: TodolistDomainType = {
             id: action.payload.todolistId,
             title: action.payload.title,
-            filter:'All' as FilterValuesType,
+            filter:'All',
             addedDate: '',
             order: 0,
         }
@@ -111,10 +111,17 @@ export const setTodolistsAC = (todolists: Todolist[]) => {
     return { type: 'SET-TODOLISTS', todolists } as const
 }
 
-export const fetchTodolistsThunk = (dispatch: Dispatch) => {
+/*export const fetchTodolistsThunk = (dispatch: Dispatch) => {
     // внутри санки можно делать побочные эффекты (запросы на сервер)
     todolistsApi.getTodolists().then(res => {
         // и диспатчить экшены (action) или другие санки (thunk)
+        dispatch(setTodolistsAC(res.data))
+    })
+}*/
+export const getTodolistsTC = () => (dispatch: Dispatch) => {
+    // внутри санки можно делать побочные эффекты (запросы на сервер)
+    todolistsApi.getTodolists()
+        .then(res => { // и диспатчить экшены (action) или другие санки (thunk)
         dispatch(setTodolistsAC(res.data))
     })
 }
