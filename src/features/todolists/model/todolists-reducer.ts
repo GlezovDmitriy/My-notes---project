@@ -121,7 +121,7 @@ export const setTodolistsAC = (todolists: Todolist[]) => {
 export const getTodolistsTC = () => (dispatch: Dispatch) => {
     // внутри санки можно делать побочные эффекты (запросы на сервер)
     todolistsApi.getTodolists()
-        .then(res => { // и диспатчить экшены (action) или другие санки (thunk)
+        .then((res) => { // и диспатчить экшены (action) или другие санки (thunk)
         dispatch(setTodolistsAC(res.data))
     })
 }

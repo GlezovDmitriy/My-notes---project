@@ -3,7 +3,7 @@ import React from "react";
 //import {Button} from "./components/Button";
 import {AddItemForm} from "../../../../common/components/AddItemForm";
 import {addTaskAC} from "../../../todolists/model/tasks-reducer";
-import {TodolistType} from "../../../todolists/model/todolists-reducer";
+import {TodolistDomainType, TodolistType} from "../../../todolists/model/todolists-reducer";
 import {FilterTasksButtons} from "./FilterTasksButtons/FilterTasksButtons";
 import {Tasks} from "./Tasks/Tasks";
 import {useDispatch} from "react-redux";
@@ -12,7 +12,7 @@ import {useAppDispatch} from "../../../../common/hooks/useAppDispatch";
 
 
 export type PropsType = {
-    todolist: TodolistType
+    todolist: TodolistDomainType
     /*title: string
     todolistId: string
     /!*tasks: TaskType[]*!/

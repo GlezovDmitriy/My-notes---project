@@ -1,21 +1,35 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, useEffect} from 'react';
 import {EditableSpan} from "../../../../../common/components/EditableSpan";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-import {TodolistType} from "../../../../todolists/model/todolists-reducer";
-import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksType} from "../../../../todolists/model/tasks-reducer";
+import {TodolistDomainType, TodolistType} from "../../../../todolists/model/todolists-reducer";
+import {
+    addTaskAC,
+    changeTaskStatusAC,
+    changeTaskTitleAC,
+    getTasksTC,
+    removeTaskAC,
+    TasksType
+} from "../../../../todolists/model/tasks-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../../../app/store";
 import {Checkbox} from "@mui/material";
 import {Task} from "../TodolistTitle/Task/Task";
 import {useAppSelector} from "../../../../../common/hooks/useAppSelector";
 import {selectTasks} from "../../../../todolists/model/tasksSelectors";
+import {TaskStatus} from "common/enums/enums";
+import {useAppDispatch} from "common/hooks/useAppDispatch";
 type Props = {
-    todolist: TodolistType,
+    todolist: TodolistDomainType,
 }
 export const Tasks = ({ todolist }: Props) => {
 
     const tasks = useAppSelector(selectTasks)
+    const  dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(getTasksTC(todolist.id))
+    }, [])
     /*const removeTask = (taskId:string, todolistId:string) => {
         dispatch(removeTaskAC({taskId, todolistId}))
     }
@@ -33,22 +47,22 @@ export const Tasks = ({ todolist }: Props) => {
         taskForTodolist = allTodolistTasks
     }*/
     if (todolist.filter === 'Active') {
-        taskForTodolist = allTodolistTasks.filter(task => task.isDone === false)
+        taskForTodolist = allTodolistTasks.filter(task => task.status === TaskStatus.New)
     }
     if (todolist.filter === 'Completed') {
-        taskForTodolist = allTodolistTasks.filter(task => task.isDone === true)
+        taskForTodolist = allTodolistTasks.filter(task => task.status === TaskStatus.Completed)
     }
 
     return (
         <>
-            {taskForTodolist.length === 0 ? (
+            {taskForTodolist && taskForTodolist.length === 0 ? (
                 <p>Заметок нет!</p>
             ) : (
                 <ul>
-                    {taskForTodolist.map(task => {
+                    {taskForTodolist && taskForTodolist.map(task => {
                         return (
                             <li key={task.id}
-                                className={task.isDone ? 'is-done' : ''}>
+                                className={task.status === TaskStatus.Completed ? 'is-done' : ''}>
                                 <Task todolist={todolist} task={task}/>
                             </li>
                         )

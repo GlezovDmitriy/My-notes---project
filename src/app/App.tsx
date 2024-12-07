@@ -18,8 +18,8 @@ export const App = () => {
     const themeMode = useAppSelector(selectThemeMode)
 
     useEffect(() => {
-        dispatch(getTodolistsTC())
-    }, [])
+        dispatch(getTodolistsTC)
+    }, [dispatch])
     return (
         <div>
             <ThemeProvider theme={getTheme(themeMode)}>

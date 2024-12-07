@@ -3,13 +3,15 @@ import {Checkbox} from "@mui/material";
 import {EditableSpan} from "common/components/EditableSpan";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-import {TodolistType} from "../../../../../todolists/model/todolists-reducer";
+import {TodolistDomainType, TodolistType} from "../../../../../todolists/model/todolists-reducer";
 import {changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TaskType} from "../../../../../todolists/model/tasks-reducer";
 import {useDispatch} from "react-redux";
 import {useAppDispatch} from "common/hooks/useAppDispatch";
+import {TaskStatus} from "common/enums/enums";
+import {DomainTask} from "../../../../../todolists/api/tasksApi.types";
 type Props = {
-    todolist: TodolistType,
-    task: TaskType
+    todolist: TodolistDomainType,
+    task: DomainTask
 }
 export const Task = ({todolist,task}:Props) => {
     const dispatch = useAppDispatch()
@@ -28,7 +30,7 @@ export const Task = ({todolist,task}:Props) => {
     }
     return (
         <div>
-            <Checkbox checked={task.isDone} onChange={changeTaskStatusHandler} />
+            <Checkbox checked={task.status === TaskStatus.Completed} onChange={changeTaskStatusHandler} />
             <EditableSpan value={task.title} onChange={changeTaskTitleHandler}/>
             {/*<Button onClick={removeTaskHandler} title={'X'}/>*/}
             <IconButton size="small"
