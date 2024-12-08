@@ -7,7 +7,7 @@ import {TodolistDomainType} from "../../../../../todolists/model/todolists-reduc
 import {
     changeTaskStatusAC,
     changeTaskStatusTC,
-    changeTaskTitleAC,
+    changeTaskTitleAC, changeTaskTitleTC,
     removeTaskTC
 } from "../../../../../todolists/model/tasks-reducer";
 import {useAppDispatch} from "common/hooks/useAppDispatch";
@@ -31,7 +31,7 @@ export const Task = ({todolist,task}:Props) => {
     }
     const changeTaskTitleHandler = (title: string) => {
        // updateTask(todolist.id, task.id, title)
-        dispatch(changeTaskTitleAC({taskId:task.id, todolistId: todolist.id, title}))
+        dispatch(changeTaskTitleTC({taskId:task.id, todolistId: todolist.id, title}))
     }
     return (
         <div>

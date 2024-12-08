@@ -193,3 +193,27 @@ export const changeTaskStatusTC =
                 })
             }
         }
+export const changeTaskTitleTC =
+    (arg: { taskId: string; title: string; todolistId: string }) =>
+        (dispatch: Dispatch, getState: () => RootState) => {
+            const { taskId, todolistId, title } = arg
+
+            const allTasksFromState = getState().tasks
+            const tasksForCurrentTodolist = allTasksFromState[todolistId]
+            const task = tasksForCurrentTodolist.find(t => t.id === taskId)
+
+            if (task) {
+                const model: UpdateTaskModel = {
+                    status:task.status,
+                    title,
+                    deadline: task.deadline,
+                    description: task.description,
+                    priority: task.priority,
+                    startDate: task.startDate,
+                }
+
+                tasksApi.changeTaskStatus({ taskId, todolistId, model }).then(res => {
+                    dispatch(changeTaskTitleAC(arg))
+                })
+            }
+        }
