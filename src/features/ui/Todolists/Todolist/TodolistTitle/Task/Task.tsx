@@ -3,18 +3,17 @@ import {Checkbox} from "@mui/material";
 import {EditableSpan} from "common/components/EditableSpan";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-import {TodolistDomainType, TodolistType} from "../../../../../todolists/model/todolists-reducer";
+import {TodolistDomainType} from "../../../../../todolists/model/todolists-reducer";
 import {
     changeTaskStatusAC,
+    changeTaskStatusTC,
     changeTaskTitleAC,
-    removeTaskAC,
-    removeTaskTC,
-    TaskType
+    removeTaskTC
 } from "../../../../../todolists/model/tasks-reducer";
-import {useDispatch} from "react-redux";
 import {useAppDispatch} from "common/hooks/useAppDispatch";
 import {TaskStatus} from "common/enums/enums";
 import {DomainTask} from "../../../../../todolists/api/tasksApi.types";
+
 type Props = {
     todolist: TodolistDomainType,
     task: DomainTask
@@ -26,9 +25,9 @@ export const Task = ({todolist,task}:Props) => {
         dispatch(removeTaskTC({taskId:task.id, todolistId: todolist.id}))
     }
     const changeTaskStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        const newStatusValue = e.currentTarget.checked
+        const newStatusValue = e.currentTarget.checked ? TaskStatus.Completed : TaskStatus.New
        // changeTaskStatus(task.id, newStatusValue, todolist.id)
-        dispatch(changeTaskStatusAC({taskId:task.id, todolistId: todolist.id, isDone:newStatusValue}))
+        dispatch(changeTaskStatusTC({taskId:task.id, status:newStatusValue, todolistId: todolist.id}))
     }
     const changeTaskTitleHandler = (title: string) => {
        // updateTask(todolist.id, task.id, title)
