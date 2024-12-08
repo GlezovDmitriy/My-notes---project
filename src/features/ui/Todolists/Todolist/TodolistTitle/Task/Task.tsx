@@ -4,7 +4,13 @@ import {EditableSpan} from "common/components/EditableSpan";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {TodolistDomainType, TodolistType} from "../../../../../todolists/model/todolists-reducer";
-import {changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TaskType} from "../../../../../todolists/model/tasks-reducer";
+import {
+    changeTaskStatusAC,
+    changeTaskTitleAC,
+    removeTaskAC,
+    removeTaskTC,
+    TaskType
+} from "../../../../../todolists/model/tasks-reducer";
 import {useDispatch} from "react-redux";
 import {useAppDispatch} from "common/hooks/useAppDispatch";
 import {TaskStatus} from "common/enums/enums";
@@ -17,7 +23,7 @@ export const Task = ({todolist,task}:Props) => {
     const dispatch = useAppDispatch()
     const removeTaskHandler = () => {
        // removeTask(task.id, todolist.id)
-        dispatch(removeTaskAC({taskId:task.id, todolistId: todolist.id}))
+        dispatch(removeTaskTC({taskId:task.id, todolistId: todolist.id}))
     }
     const changeTaskStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const newStatusValue = e.currentTarget.checked

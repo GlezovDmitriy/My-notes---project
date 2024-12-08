@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 //import {Button} from "./components/Button";
 import {AddItemForm} from "../../../../common/components/AddItemForm";
-import {addTaskAC} from "../../../todolists/model/tasks-reducer";
+import {addTaskAC, addTaskTC, getTasksTC} from "../../../todolists/model/tasks-reducer";
 import {TodolistDomainType, TodolistType} from "../../../todolists/model/todolists-reducer";
 import {FilterTasksButtons} from "./FilterTasksButtons/FilterTasksButtons";
 import {Tasks} from "./Tasks/Tasks";
@@ -45,9 +45,14 @@ export const Todolist = ({
     /*const removeTodolistHandler = () => {
         removeTodolist(todolist.id)
     }*/
-    const addTaskCallback = (title: string) => {
+   /* const addTaskCallback = (title: string) => {
         dispatch(addTaskAC({title, todolistId: todolist.id}))
+    }*/
+    const addTaskCallback = (title: string) => {
+            dispatch(addTaskTC(todolist.id, title))
+
     }
+
     /*const updateTodolistHandler = (title: string) => {
         updateTodolist(todolist.id, title)
     }*/
