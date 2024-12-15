@@ -68,8 +68,8 @@ switch (action.type) {
     }
     case 'ADD-TODOLIST':{
         const newTodolist: TodolistDomainType = {
-            id: action.payload.todolistId,
-            title: action.payload.title,
+            id: action.payload.todolist.id,
+            title: action.payload.todolist.title,
             filter:'All',
             addedDate: '',
             order: 0,
@@ -98,8 +98,11 @@ return { type: 'REMOVE-TODOLIST', payload: { id: todolistId } } as const
 export const removeTodolistAC = (id:string) =>{
     return { type: 'REMOVE-TODOLIST', payload: { id: id } } as const
 }
-export const addTodolistAC = (title: string) => {
+/*export const addTodolistAC = (title: string) => {
     return { type: 'ADD-TODOLIST', payload: { title, todolistId: v1() } } as const
+}*/ //без сервера
+export const addTodolistAC = (todolist: Todolist) => {
+    return { type: 'ADD-TODOLIST', payload: { todolist } } as const
 }
 export const changeTodolistTitleAC = (payload: {todolistId: string, title: string}) => {
     return { type: 'CHANGE-TODOLIST-TITLE', payload } as const
@@ -123,5 +126,10 @@ export const getTodolistsTC = () => (dispatch: Dispatch) => {
     todolistsApi.getTodolists()
         .then((res) => { // и диспатчить экшены (action) или другие санки (thunk)
         dispatch(setTodolistsAC(res.data))
+    })
+}
+export const addTodolistTC = (title: string) => (dispatch: Dispatch) => {
+    todolistsApi.createTodolist(title).then(res => {
+        dispatch(addTodolistAC(title))
     })
 }

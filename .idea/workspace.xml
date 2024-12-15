@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="&quot;Remove .env from repository and add to .gitignore&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/todolists/api/taskApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/api/taskApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/todolists/api/tasksApi.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/api/tasksApi.types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/todolists/model/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/todolists/model/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/todolists-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/ui/Todolists/Todolist/TodolistTitle/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ui/Todolists/Todolist/TodolistTitle/Task/Task.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +221,9 @@
       <workItem from="1733080623470" duration="2652000" />
       <workItem from="1733255770942" duration="12751000" />
       <workItem from="1733426736553" duration="3064000" />
-      <workItem from="1733574657108" duration="28907000" />
+      <workItem from="1733574657108" duration="36608000" />
+      <workItem from="1734030180805" duration="3248000" />
+      <workItem from="1734294052603" duration="1316000" />
     </task>
     <task id="LOCAL-00003" summary="Added Button component">
       <option name="closed" value="true" />

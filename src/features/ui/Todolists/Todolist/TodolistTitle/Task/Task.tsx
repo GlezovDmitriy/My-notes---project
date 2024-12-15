@@ -8,7 +8,7 @@ import {
     changeTaskStatusAC,
     changeTaskStatusTC,
     changeTaskTitleAC, changeTaskTitleTC,
-    removeTaskTC
+    removeTaskTC, updateTaskTC
 } from "../../../../../todolists/model/tasks-reducer";
 import {useAppDispatch} from "common/hooks/useAppDispatch";
 import {TaskStatus} from "common/enums/enums";
@@ -24,14 +24,23 @@ export const Task = ({todolist,task}:Props) => {
        // removeTask(task.id, todolist.id)
         dispatch(removeTaskTC({taskId:task.id, todolistId: todolist.id}))
     }
-    const changeTaskStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    /*const changeTaskStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const newStatusValue = e.currentTarget.checked ? TaskStatus.Completed : TaskStatus.New
        // changeTaskStatus(task.id, newStatusValue, todolist.id)
         dispatch(changeTaskStatusTC({taskId:task.id, status:newStatusValue, todolistId: todolist.id}))
-    }
-    const changeTaskTitleHandler = (title: string) => {
+    }*/
+    /*const changeTaskTitleHandler = (title: string) => {
        // updateTask(todolist.id, task.id, title)
         dispatch(changeTaskTitleTC({taskId:task.id, todolistId: todolist.id, title}))
+    }*/
+    const changeTaskStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const newStatusValue = e.currentTarget.checked ? TaskStatus.Completed : TaskStatus.New
+        // changeTaskStatus(task.id, newStatusValue, todolist.id)
+        dispatch(updateTaskTC({taskId:task.id, status:newStatusValue, todolistId: todolist.id}))
+    }
+    const changeTaskTitleHandler = (title: string) => {
+        // updateTask(todolist.id, task.id, title)
+        dispatch(updateTaskTC({taskId:task.id, todolistId: todolist.id, title}))
     }
     return (
         <div>

@@ -3,7 +3,7 @@ import {
     CreateTaskResponse,
     DomainTask,
     GetTasksResponse,
-    RemoveTaskResponse, UpdateTaskModel,
+    RemoveTaskResponse, UpdateTaskDomainModel, UpdateTaskModel,
     UpdateTaskResponse
 } from "./tasksApi.types";
 import {ChangeEvent} from "react";
@@ -29,5 +29,9 @@ export const tasksApi = {
     changeTaskTitle(payload: { todolistId: string; taskId: string; model: UpdateTaskModel }){
         const {taskId, todolistId,model} = payload
         return instance.put<BaseResponse >(`todo-lists/${todolistId}/tasks/${taskId}`, model)
-    }
+    },
+    updateTask(payload: { todolistId: string; taskId: string;  model: UpdateTaskDomainModel }){
+        const {taskId, todolistId,model} = payload
+        return instance.put<BaseResponse >(`todo-lists/${todolistId}/tasks/${taskId}`, model)
+    },
 }
