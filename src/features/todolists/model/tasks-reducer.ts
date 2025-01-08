@@ -1,9 +1,8 @@
-import {v1} from "uuid";
 import {AddTodolistActionType, RemoveTodolistActionType} from "./todolists-reducer";
 import {Dispatch} from "redux";
 import {tasksApi} from "../api/taskApi";
-import {DomainTask, UpdateTaskDomainModel, UpdateTaskModel} from "../api/tasksApi.types";
-import {TaskPriority, TaskStatus} from "common/enums/enums";
+import {DomainTask, UpdateTaskModel} from "../api/tasksApi.types";
+import {TaskStatus} from "common/enums/enums";
 import {RootState} from "../../../app/store";
 
 export type TaskType = {
@@ -103,7 +102,7 @@ export const tasksReducer = (state: MainTaskType = initialState, action: Actions
             }
         }
         case 'ADD-TODOLIST': {
-            return {...state, [action.payload.todolistId]: []}
+            return {...state, [action.payload.todolist.id]: []}
         }
         case 'REMOVE-TODOLIST': {
             const newState = {...state}
@@ -219,6 +218,7 @@ export const changeTaskTitleTC =
                 })
             }
         }
+/*
 export type UpdateTaskDomainModel = {
     title?: string
     description?: string
@@ -251,4 +251,4 @@ export const updateTaskTC =
                     dispatch(changeTaskTitleAC(arg))
                 })
             }
-        }
+        }*/ //updateTaskTC

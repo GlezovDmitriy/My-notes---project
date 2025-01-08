@@ -1,12 +1,4 @@
-import axios from "axios";
-import {
-    CreateTaskResponse,
-    DomainTask,
-    GetTasksResponse,
-    RemoveTaskResponse, UpdateTaskDomainModel, UpdateTaskModel,
-    UpdateTaskResponse
-} from "./tasksApi.types";
-import {ChangeEvent} from "react";
+import {CreateTaskResponse, GetTasksResponse, UpdateTaskModel} from "./tasksApi.types";
 import {instance} from "common/instance/instance";
 import {BaseResponse} from "common/types";
 
@@ -30,8 +22,8 @@ export const tasksApi = {
         const {taskId, todolistId,model} = payload
         return instance.put<BaseResponse >(`todo-lists/${todolistId}/tasks/${taskId}`, model)
     },
-    updateTask(payload: { todolistId: string; taskId: string;  model: UpdateTaskDomainModel }){
+    /*updateTask(payload: { todolistId: string; taskId: string;  model: UpdateTaskDomainModel }){
         const {taskId, todolistId,model} = payload
         return instance.put<BaseResponse >(`todo-lists/${todolistId}/tasks/${taskId}`, model)
-    },
+    },*/
 }

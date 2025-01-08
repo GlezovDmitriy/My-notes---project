@@ -3,6 +3,8 @@ import {Todolist} from "../api/todolistsApi.types";
 import {RootState} from "../../../app/store";
 import {Dispatch} from "redux";
 import {todolistsApi} from "../api/todolistsApi";
+import {BaseResponse, ItemResponseType, ResponseNotesType} from "common/types";
+import {AxiosResponse} from "axios";
 
 // Типизация:
 /*export type RemoveTodolistActionType = {
@@ -67,13 +69,15 @@ switch (action.type) {
         return state.filter(tl => tl.id !== action.payload.id)
     }
     case 'ADD-TODOLIST':{
-        const newTodolist: TodolistDomainType = {
+        /*const newTodolist: TodolistDomainType = {
             id: action.payload.todolist.id,
             title: action.payload.todolist.title,
             filter:'All',
             addedDate: '',
             order: 0,
-        }
+        }*/
+        const newTodolist: TodolistDomainType = {
+            ...action.payload.todolist, filter:'All' }
         return [newTodolist, ...state]
     }
     case 'CHANGE-TODOLIST-TITLE':{
@@ -128,8 +132,23 @@ export const getTodolistsTC = () => (dispatch: Dispatch) => {
         dispatch(setTodolistsAC(res.data))
     })
 }
-export const addTodolistTC = (title: string) => (dispatch: Dispatch) => {
+/*export const addTodolistTC = (title: string) => (dispatch: Dispatch) => {
     todolistsApi.createTodolist(title).then(res => {
-        dispatch(addTodolistAC(title))
+       // const newTodolist: Todolist = res.data.item
+
+        dispatch(addTodolistAC(res.data))
     })
+}*/
+export const addTodolistTC = (title: string) => (dispatch: Dispatch) => {
+    todolistsApi.createTodolist(title)
+        .then((res: AxiosResponse<BaseResponse<{ item: ItemResponseType }>>) => {
+        const newTodolist: ItemResponseType = res.data.data.item; // Получение item
+        dispatch(addTodolistAC(newTodolist)); // Диспатчим
+    })};
+export const removeTodolistTC = (id:string) => (dispatch: Dispatch) => {
+    todolistsApi.removeTodolist(id)
+        .then(res =>{
+            dispatch(removeTodolistAC(id))
+            }
+        )
 }
