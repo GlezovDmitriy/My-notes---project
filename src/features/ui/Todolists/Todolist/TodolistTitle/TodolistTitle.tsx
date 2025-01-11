@@ -3,7 +3,7 @@ import {EditableSpan} from "../../../../../common/components/EditableSpan";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
-    changeTodolistTitleAC,
+    changeTodolistTitleAC, changeTodolistTitleTC,
     removeTodolistAC,
     removeTodolistTC,
     TodolistType
@@ -22,7 +22,7 @@ export const TodolistTitle = ({ todolist }:Props) => {
         dispatch(removeTodolistTC(id))
     }
     const updateTodolistHandler = (title: string) => {
-        dispatch(changeTodolistTitleAC({ todolistId: id, title: title }))
+        dispatch(changeTodolistTitleTC({ todolistId: id, title: title }))
     }
 
     return (
