@@ -6,7 +6,7 @@ import './index.css';
 import {Provider} from "react-redux";
 import {store} from "./app/store";
 import {App} from "./app/App";
-import {AppHttpRequests} from "./app/AppHttpRequests";
+//import {AppHttpRequests} from "./app/AppHttpRequests";
 
 
 const root = ReactDOM.createRoot(

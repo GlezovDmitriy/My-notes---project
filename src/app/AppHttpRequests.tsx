@@ -1,22 +1,10 @@
+/*
 import Checkbox from '@mui/material/Checkbox'
-import React, { ChangeEvent, useEffect, useState } from 'react'
-import { AddItemForm } from '../common/components/AddItemForm'
-import { EditableSpan } from '../common/components/EditableSpan'
-import axios from "axios";
-import {log} from "util";
-import {store} from "./store";
-import {
-    CreateTodolistResponse,
-    DeleteTodolistResponse,
-    Todolist,
-    UpdateTodolistResponse
-} from "../features/todolists/api/todolistsApi.types";
-import {
-    CreateTaskResponse,
-    DomainTask,
-    GetTasksResponse,
-    RemoveTaskResponse, UpdateTaskModel, UpdateTaskResponse
-} from "../features/todolists/api/tasksApi.types";
+import React, {ChangeEvent, useEffect, useState} from 'react'
+import {AddItemForm} from '../common/components/AddItemForm'
+import {EditableSpan} from '../common/components/EditableSpan'
+import {Todolist} from "../features/todolists/api/todolistsApi.types";
+import {DomainTask, UpdateTaskModel} from "../features/todolists/api/tasksApi.types";
 import {todolistsApi} from "../features/todolists/api/todolistsApi";
 import {tasksApi} from "../features/todolists/api/taskApi";
 import {TaskStatus} from "../common/enums/enums";
@@ -75,9 +63,9 @@ export const AppHttpRequests = () => {
             .then(res => {
                 //console.log(res.data)
                 const newTask = res.data.data.item
-                /*setTasks({ ...tasks,
+                /!*setTasks({ ...tasks,
                     [todolistId]: tasks[todolistId] ?
-                        [newTask, ...tasks[todolistId]] : [newTask] })*/
+                        [newTask, ...tasks[todolistId]] : [newTask] })*!/
                 setTasks({ ...tasks, [todolistId]: [newTask, ...tasks[todolistId]] })
             })
     }
@@ -136,7 +124,7 @@ export const AppHttpRequests = () => {
         <div style={{ margin: '20px' }}>
             <AddItemForm addItem={createTodolistHandler} />
 
-            {/* Todolists */}
+            {/!* Todolists *!/}
             {todolists.map((tl: Todolist) => {
                 return (
                     <div key={tl.id} style={todolist}>
@@ -149,7 +137,7 @@ export const AppHttpRequests = () => {
                         </div>
                         <AddItemForm addItem={title => createTaskHandler(title, tl.id)} />
 
-                        {/* Tasks */}
+                        {/!* Tasks *!/}
                         {!!tasks[tl.id] &&
                             tasks[tl.id].map((task: DomainTask) => {
                                 return (
@@ -183,3 +171,4 @@ const todolist: React.CSSProperties = {
     justifyContent: 'space-between',
     flexDirection: 'column',
 }
+*/ /*НЕ ИСПОЛЬЗУЕТСЯ*/

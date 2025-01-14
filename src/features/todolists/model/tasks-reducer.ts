@@ -13,7 +13,7 @@ export type TaskType = {
 export type TasksType = {
     [todolistId: string]: TaskType[];
 };
-type MainTaskType = {
+export type MainTaskType = {
     [key: string]: DomainTask[];
 }
 const initialState: MainTaskType = {}
