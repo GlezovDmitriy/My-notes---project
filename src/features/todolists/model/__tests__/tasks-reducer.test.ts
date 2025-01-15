@@ -4,13 +4,9 @@ import {
     changeTaskTitleAC,
     MainTaskType,
     removeTaskAC,
-    tasksReducer,
-    TasksType
+    tasksReducer
 } from '../tasks-reducer'
-
-import {v1} from "uuid";
 import {addTodolistAC, removeTodolistAC} from "../todolists-reducer";
-import {TaskPriority, TaskStatus} from "common/enums/enums";
 
 let startState: MainTaskType
 beforeEach(() => {
@@ -172,7 +168,17 @@ test('correct task should be added to correct array', () => {
         ],
     }*/
 
-    const endState = tasksReducer(startState, addTaskAC({ title: 'juce', todolistId: 'todolistId2' }))
+    const endState = tasksReducer(startState, addTaskAC(
+    {description: 'string',
+        title: 'juce',
+        status: 0,
+        priority: 0,
+        startDate: 'string',
+        deadline: 'string',
+        id: '4',
+        todoListId: 'todolistId2',
+        order: 1,
+        addedDate: 'string'}))
 
     expect(endState['todolistId1'].length).toBe(3)
     expect(endState['todolistId2'].length).toBe(4)
@@ -186,12 +192,12 @@ test('status of specified task should be changed', () => {
         startState,
         changeTaskStatusAC({
             taskId: '2',
-            isDone: false,
+            status: 0,
             todolistId: 'todolistId2',
         })
     )
     expect(endState['todolistId1'].length).toBe(3)
-    expect(endState['todolistId2'][1].isDone).toBe(false)
+    expect(endState['todolistId2'][1].status).toBe(0)
 
 })
 test('title of specified task should be changed', () => {
