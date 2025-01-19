@@ -7,6 +7,7 @@
     <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="&quot;Remove .env from repository and add to .gitignore&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/todolists/model/__tests__/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/__tests__/tasks-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/todolists/model/__tests__/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/__tests__/todolists-reducer.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,52 +73,56 @@
       <recent name="E:\it-incubator\My notes-project\src\common\components" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
-    <configuration name="All Tests" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="ALL" />
-      <method v="2" />
-    </configuration>
-    <configuration name="correct task should be added to correct array" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.new array should be added when new todolist is added">
+    <configuration name="correct filter of todolist should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/features/todolists/model/__tests__/tasks-reducer.test.ts" />
+      <test-file value="$PROJECT_DIR$/src/features/todolists/model/__tests__/todolists-reducer.test.ts" />
       <test-names>
-        <test-name value="correct task should be added to correct array" />
+        <test-name value="correct filter of todolist should be changed" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="correct task should be deleted from correct array" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="correct todolist should be added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/features/todolists/model/__tests__/tasks-reducer.test.ts" />
+      <test-file value="$PROJECT_DIR$/src/features/todolists/model/__tests__/todolists-reducer.test.ts" />
       <test-names>
-        <test-name value="correct task should be deleted from correct array" />
+        <test-name value="correct todolist should be added" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="status of specified task should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="correct todolist should be removed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/features/todolists/model/__tests__/tasks-reducer.test.ts" />
+      <test-file value="$PROJECT_DIR$/src/features/todolists/model/__tests__/todolists-reducer.test.ts" />
       <test-names>
-        <test-name value="status of specified task should be changed" />
+        <test-name value="correct todolist should be removed" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="title of specified task should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="correct todolist should change its name" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/features/todolists/model/__tests__/todolists-reducer.test.ts" />
+      <test-names>
+        <test-name value="correct todolist should change its name" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="new array should be added when new todolist is added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
@@ -125,7 +130,7 @@
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/src/features/todolists/model/__tests__/tasks-reducer.test.ts" />
       <test-names>
-        <test-name value="title of specified task should be changed" />
+        <test-name value="new array should be added when new todolist is added" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -141,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.correct task should be added to correct array" />
-        <item itemvalue="Jest.title of specified task should be changed" />
-        <item itemvalue="Jest.status of specified task should be changed" />
-        <item itemvalue="Jest.correct task should be deleted from correct array" />
-        <item itemvalue="Jest.All Tests" />
+        <item itemvalue="Jest.new array should be added when new todolist is added" />
+        <item itemvalue="Jest.correct filter of todolist should be changed" />
+        <item itemvalue="Jest.correct todolist should change its name" />
+        <item itemvalue="Jest.correct todolist should be added" />
+        <item itemvalue="Jest.correct todolist should be removed" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +237,7 @@
       <workItem from="1736590682396" duration="8528000" />
       <workItem from="1736973389654" duration="3631000" />
       <workItem from="1737059767123" duration="2625000" />
-      <workItem from="1737273098524" duration="830000" />
+      <workItem from="1737273098524" duration="3055000" />
     </task>
     <task id="LOCAL-00003" summary="Added Button component">
       <option name="closed" value="true" />

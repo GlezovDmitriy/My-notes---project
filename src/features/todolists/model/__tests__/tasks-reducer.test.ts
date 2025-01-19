@@ -7,6 +7,8 @@ import {
     tasksReducer
 } from '../tasks-reducer'
 import {addTodolistAC, removeTodolistAC} from "../todolists-reducer";
+import {v1} from "uuid";
+import {TaskPriority, TaskStatus} from "common/enums/enums";
 
 let startState: MainTaskType
 beforeEach(() => {
@@ -154,27 +156,26 @@ test('correct task should be deleted from correct array', () => {
         ],
     })
 })
-/*test('correct task should be added to correct array', () => {
+test('correct task should be added to correct array', () => {
 
-
-    const endState = tasksReducer(startState, addTaskAC(
-    {description: 'string',
-        title: 'juce',
-        status: 0,
-        priority: 0,
-        startDate: 'string',
-        deadline: 'string',
-        id: '4',
-        todoListId: 'todolistId2',
-        order: 1,
-        addedDate: 'string'}))
+const newTask = {description: 'string',
+    title: 'juce',
+    status: TaskStatus.New,
+    priority: TaskPriority.Low,
+    startDate: 'string',
+    deadline: 'string',
+    id: '4',
+    todoListId: 'todolistId2',
+    order: 1,
+    addedDate: 'string'}
+    const endState = tasksReducer(startState, addTaskAC({task:newTask}))
 
     expect(endState['todolistId1'].length).toBe(3)
     expect(endState['todolistId2'].length).toBe(4)
     expect(endState['todolistId2'][0].id).toBeDefined()
     expect(endState['todolistId2'][0].title).toBe('juce')
 
-})*/
+})
 
 test('status of specified task should be changed', () => {
     const endState = tasksReducer(
@@ -204,8 +205,13 @@ test('title of specified task should be changed', () => {
 })
 test('new array should be added when new todolist is added', () => {
 
-
-    const endState = tasksReducer(startState, addTodolistAC('new todolist'))
+    const newTodolist = {
+        id: v1(),
+        title: 'newTitle',
+        addedDate: 'string',
+        order: 1,
+    }
+    const endState = tasksReducer(startState, addTodolistAC(newTodolist))
 
     const keys = Object.keys(endState)
     const newKey = keys.find(k => k !== 'todolistId1' && k !== 'todolistId2')

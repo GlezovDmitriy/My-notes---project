@@ -50,7 +50,7 @@ test('correct todolist should be added', () => {
     } as const*/
     const newTitle = 'New Todolist'
     const newTodolist = {
-        id: todolistId2,
+        id: v1(),
         title: newTitle,
         addedDate: 'string',
         order: 1,
