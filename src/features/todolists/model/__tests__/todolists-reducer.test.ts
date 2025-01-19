@@ -2,22 +2,32 @@ import {
     addTodolistAC,
     changeTodolistFilterAC,
     changeTodolistTitleAC,
-    removeTodolistAC,
+    removeTodolistAC, TodolistDomainType,
     todolistsReducer, TodolistType
 } from '../todolists-reducer'
 import { v1 } from 'uuid'
 
 let todolistId1: string
 let todolistId2: string
-let startState: TodolistType[] = []
+let startState: TodolistDomainType[] = []
 
 beforeEach(() => {
     todolistId1 = v1()
     todolistId2 = v1()
 
     startState = [
-        { id: todolistId1, title: 'What to learn', filter: 'All' },
-        { id: todolistId2, title: 'What to buy', filter: 'All' },
+        {id: todolistId1,
+            title: 'What to learn',
+            addedDate: 'string',
+            order: 1,
+            filter: 'All'
+        },
+        {id: todolistId2,
+            title: 'What to buy',
+            addedDate: 'string',
+            order: 1,
+            filter: 'All'
+        }
     ]
 })
 test('correct todolist should be removed', () => {
@@ -39,7 +49,13 @@ test('correct todolist should be added', () => {
         },
     } as const*/
     const newTitle = 'New Todolist'
-    const endState = todolistsReducer(startState, addTodolistAC(newTitle))
+    const newTodolist = {
+        id: todolistId2,
+        title: newTitle,
+        addedDate: 'string',
+        order: 1,
+    }
+    const endState = todolistsReducer(startState, addTodolistAC(newTodolist))
 
     // 3. Проверяем, что наши действия (изменения state) соответствуют ожиданию
     // в массиве останется один тудулист
