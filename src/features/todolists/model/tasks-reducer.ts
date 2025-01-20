@@ -4,6 +4,7 @@ import {tasksApi} from "../api/taskApi";
 import {DomainTask, UpdateTaskModel} from "../api/tasksApi.types";
 import {TaskStatus} from "common/enums/enums";
 import {RootState} from "../../../app/store";
+import {setAppStatusAC} from "../../../app/app-reducer";
 
 export type TaskType = {
     id: string
@@ -159,15 +160,20 @@ export const setTasksAC = (payload: { todolistId: string; tasks: DomainTask[] })
     } as const
 }
 export const getTasksTC = (todolistId: string) => (dispatch: Dispatch) => {
+    dispatch(setAppStatusAC('loading'))
     tasksApi.getTasks(todolistId).then((res) => {
         const tasks = res.data.items
         dispatch(setTasksAC({todolistId, tasks}))
+        dispatch(setAppStatusAC('succeeded'))
     })
 }
 export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispatch) => {
+    console.log('task add')
+    dispatch(setAppStatusAC('loading'))
     tasksApi.createTask({todolistId, title})
         .then(res => {
             dispatch(addTaskAC({task: res.data.data.item}))
+            dispatch(setAppStatusAC('succeeded'))
         })
 }
 export const changeTaskStatusTC =
@@ -188,9 +194,10 @@ export const changeTaskStatusTC =
                     priority: task.priority,
                     startDate: task.startDate,
                 }
-
+                dispatch(setAppStatusAC('loading'))
                 tasksApi.changeTaskStatus({taskId, todolistId, model}).then(res => {
                     dispatch(changeTaskStatusAC(arg))
+                    dispatch(setAppStatusAC('succeeded'))
                 })
             }
         }
@@ -212,9 +219,10 @@ export const changeTaskTitleTC =
                     priority: task.priority,
                     startDate: task.startDate,
                 }
-
+                dispatch(setAppStatusAC('loading'))
                 tasksApi.changeTaskStatus({taskId, todolistId, model}).then(res => {
                     dispatch(changeTaskTitleAC(arg))
+                    dispatch(setAppStatusAC('succeeded'))
                 })
             }
         }
