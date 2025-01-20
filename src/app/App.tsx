@@ -11,6 +11,7 @@ import {useAppSelector} from "../common/hooks/useAppSelector";
 import {selectStatusMode, selectThemeMode} from "./appSelectors";
 import { getTodolistsTC} from "../features/todolists/model/todolists-reducer";
 import {useAppDispatch} from "common/hooks/useAppDispatch";
+import {ErrorSnackbar} from "common/components/ErrorSnackbar";
 
 
 export const App = () => {
@@ -28,6 +29,8 @@ export const App = () => {
             <Header/>
             <Main/>
                 </Box>
+
+                <ErrorSnackbar/>
             </ThemeProvider>
         </div>
     );

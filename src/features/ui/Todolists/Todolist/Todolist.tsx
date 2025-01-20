@@ -9,6 +9,7 @@ import {Tasks} from "./Tasks/Tasks";
 import {useDispatch} from "react-redux";
 import {TodolistTitle} from "./TodolistTitle/TodolistTitle";
 import {useAppDispatch} from "../../../../common/hooks/useAppDispatch";
+import {setAppErrorAC} from "../../../../app/app-reducer";
 
 
 export type PropsType = {
@@ -50,7 +51,6 @@ export const Todolist = ({
     }*/
     const addTaskCallback = (title: string) => {
             dispatch(addTaskTC(todolist.id, title))
-
     }
 
     /*const updateTodolistHandler = (title: string) => {
