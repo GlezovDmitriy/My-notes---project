@@ -2,7 +2,7 @@ import {AddTodolistActionType, RemoveTodolistActionType} from "./todolists-reduc
 import {Dispatch} from "redux";
 import {tasksApi} from "../api/taskApi";
 import {DomainTask, UpdateTaskModel} from "../api/tasksApi.types";
-import {TaskStatus} from "common/enums/enums";
+import {ResultCode, TaskStatus} from "common/enums/enums";
 import {RootState} from "../../../app/store";
 import {setAppErrorAC, setAppStatusAC} from "../../../app/app-reducer";
 
@@ -172,12 +172,12 @@ export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispa
     dispatch(setAppStatusAC('loading'))
     tasksApi.createTask({todolistId, title})
         .then(res => {
-            if (res.data.resultCode === 0) {
+            if (res.data.resultCode === ResultCode.Success) {          //если без ошибок запрос
                 dispatch(addTaskAC({task: res.data.data.item}))
                 dispatch(setAppStatusAC('succeeded'))
-            } else if (res.data.resultCode !== 0) {
+            } else if (res.data.resultCode !== 0) {                      //если с ошибкой запрос
                 const messages = res.data.messages;
-                if (Array.isArray(messages) && messages.length > 0) {
+                if (Array.isArray(messages) && messages.length > 0) {     //если есть сообщение об ошибке ( с бэка)
                     dispatch(setAppErrorAC(messages[0]))
                 } else {
                     dispatch(setAppErrorAC('Some error occurred'))

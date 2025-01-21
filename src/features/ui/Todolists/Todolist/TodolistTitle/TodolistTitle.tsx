@@ -5,16 +5,17 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import {
     changeTodolistTitleAC, changeTodolistTitleTC,
     removeTodolistAC,
-    removeTodolistTC,
+    removeTodolistTC, TodolistDomainType,
     TodolistType
 } from "../../../../todolists/model/todolists-reducer";
 import {useDispatch} from "react-redux";
 import {useAppDispatch} from "../../../../../common/hooks/useAppDispatch";
+
 type Props = {
-    todolist: TodolistType
+    todolist: TodolistDomainType
 }
-export const TodolistTitle = ({ todolist }:Props) => {
-    const { title, id } = todolist
+export const TodolistTitle = ({todolist}: Props) => {
+    const {title, id, entityStatus} = todolist
 
     const dispatch = useAppDispatch()
 
@@ -22,7 +23,7 @@ export const TodolistTitle = ({ todolist }:Props) => {
         dispatch(removeTodolistTC(id))
     }
     const updateTodolistHandler = (title: string) => {
-        dispatch(changeTodolistTitleTC({ todolistId: id, title: title }))
+        dispatch(changeTodolistTitleTC({todolistId: id, title: title}))
     }
 
     return (
@@ -32,8 +33,9 @@ export const TodolistTitle = ({ todolist }:Props) => {
             {/*<Button title={'X'} onClick={removeTodolistHandler}/>*/}
             {/*из MUI:*/}
             <IconButton size="small"
-                        onClick={removeTodolistHandler}>
-                <DeleteIcon />
+                        onClick={removeTodolistHandler}
+                        disabled={entityStatus === 'loading'}>
+                <DeleteIcon/>
             </IconButton>
         </div>
     );
