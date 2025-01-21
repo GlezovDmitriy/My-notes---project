@@ -5,9 +5,10 @@ import {TextField} from "@mui/material";
 
 type Props = {
     addItem: (title: string) => void
+    disabled?: boolean
 }
 
-export const AddItemForm = ({addItem}: Props) => {
+export const AddItemForm = ({addItem, disabled}: Props) => {
     const [title, setTitle] = useState('')
     const [error, setError] = useState<string | null>(null)
 
@@ -45,9 +46,10 @@ export const AddItemForm = ({addItem}: Props) => {
                 size={'small'}
                 onChange={changeItemHandler}
                 onKeyUp={addItemOnKeyUpHandler}
+                disabled={disabled}
             />
             {/*<Button title={'+'} onClick={addItemHandler}/>*/}
-            <Button size="medium" variant="outlined" onClick={addItemHandler}>
+            <Button size="medium" variant="outlined" onClick={addItemHandler} disabled={disabled}>
                 +
             </Button>
             {error && <div className={'error-message'}>{error}</div>}

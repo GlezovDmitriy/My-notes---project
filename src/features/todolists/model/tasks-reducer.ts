@@ -185,6 +185,11 @@ export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispa
             }
             dispatch(setAppStatusAC('failed'))
         })
+        .catch((error) => {
+            dispatch(setAppErrorAC(error.message))
+            console.log(error.message)
+            dispatch(setAppStatusAC("failed"))
+        })
 }
 export const changeTaskStatusTC =
     (arg: { taskId: string; status: TaskStatus; todolistId: string }) =>
@@ -205,10 +210,26 @@ export const changeTaskStatusTC =
                     startDate: task.startDate,
                 }
                 dispatch(setAppStatusAC('loading'))
-                tasksApi.changeTaskStatus({taskId, todolistId, model}).then(res => {
-                    dispatch(changeTaskStatusAC(arg))
-                    dispatch(setAppStatusAC('succeeded'))
-                })
+                tasksApi.changeTaskStatus({taskId, todolistId, model})
+                    .then(res => {
+                        if (res.data.resultCode === ResultCode.Success){
+                            dispatch(changeTaskStatusAC(arg))
+                        } else {
+                            if (res.data.messages.length) {
+                                dispatch(setAppErrorAC(res.data.messages[0]))
+                            } else {
+                                dispatch(setAppErrorAC('Some error occurred'))
+                            }
+                            dispatch(setAppStatusAC('failed'))
+                        }
+                    })
+
+                    // dispatch(setAppStatusAC('succeeded'))
+
+                    .catch(error => {
+                        dispatch(setAppErrorAC(error.message))
+                        dispatch(setAppStatusAC('failed'))
+                    })
             }
         }
 export const changeTaskTitleTC =
@@ -230,10 +251,26 @@ export const changeTaskTitleTC =
                     startDate: task.startDate,
                 }
                 dispatch(setAppStatusAC('loading'))
-                tasksApi.changeTaskStatus({taskId, todolistId, model}).then(res => {
-                    dispatch(changeTaskTitleAC(arg))
-                    dispatch(setAppStatusAC('succeeded'))
-                })
+                tasksApi.changeTaskTitle({taskId, todolistId, model})
+                    .then(res => {
+                        if (res.data.resultCode === ResultCode.Success){
+                            dispatch(changeTaskTitleAC(arg))
+                        } else {
+                            if (res.data.messages.length) {
+                                dispatch(setAppErrorAC(res.data.messages[0]))
+                            } else {
+                                dispatch(setAppErrorAC('Some error occurred'))
+                            }
+                            dispatch(setAppStatusAC('failed'))
+                        }
+                        })
+
+                   // dispatch(setAppStatusAC('succeeded'))
+
+                    .catch(error => {
+                        dispatch(setAppErrorAC(error.message))
+                        dispatch(setAppStatusAC('failed'))
+                    })
             }
         }
 /*
