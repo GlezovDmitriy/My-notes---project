@@ -21,7 +21,7 @@ export type DomainTask = {
 export type CreateTaskResponse ={
     data: {item: DomainTask}
     fieldsErrors: []
-    messages: []
+    messages: string[]
     resultCode: number
 }
 export type UpdateTaskModel ={

@@ -4,7 +4,7 @@ import {tasksApi} from "../api/taskApi";
 import {DomainTask, UpdateTaskModel} from "../api/tasksApi.types";
 import {TaskStatus} from "common/enums/enums";
 import {RootState} from "../../../app/store";
-import {setAppStatusAC} from "../../../app/app-reducer";
+import {setAppErrorAC, setAppStatusAC} from "../../../app/app-reducer";
 
 export type TaskType = {
     id: string
@@ -45,7 +45,7 @@ type ActionsType = RemoveActionType
     | AddTodolistActionType
     | RemoveTodolistActionType
     | SetTasksActionType
-    //| UpdateTasksActionType
+//| UpdateTasksActionType
 export const tasksReducer = (state: MainTaskType = initialState, action: ActionsType): MainTaskType => {
     switch (action.type) {
         case 'SET-TASKS':
@@ -172,8 +172,18 @@ export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispa
     dispatch(setAppStatusAC('loading'))
     tasksApi.createTask({todolistId, title})
         .then(res => {
-            dispatch(addTaskAC({task: res.data.data.item}))
-            dispatch(setAppStatusAC('succeeded'))
+            if (res.data.resultCode === 0) {
+                dispatch(addTaskAC({task: res.data.data.item}))
+                dispatch(setAppStatusAC('succeeded'))
+            } else if (res.data.resultCode !== 0) {
+                const messages = res.data.messages;
+                if (Array.isArray(messages) && messages.length > 0) {
+                    dispatch(setAppErrorAC(messages[0]))
+                } else {
+                    dispatch(setAppErrorAC('Some error occurred'))
+            }
+            }
+            dispatch(setAppStatusAC('failed'))
         })
 }
 export const changeTaskStatusTC =
