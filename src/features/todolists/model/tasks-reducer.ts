@@ -1,4 +1,4 @@
-import {AddTodolistActionType, RemoveTodolistActionType} from "./todolists-reducer";
+import {addTodolistAC, AddTodolistActionType, RemoveTodolistActionType} from "./todolists-reducer";
 import {Dispatch} from "redux";
 import {tasksApi} from "../api/taskApi";
 import {DomainTask, UpdateTaskModel} from "../api/tasksApi.types";
@@ -7,6 +7,7 @@ import {RootState} from "../../../app/store";
 import {setAppErrorAC, setAppStatusAC} from "../../../app/app-reducer";
 import {handleServerAppError} from "common/utils/handleServerAppError";
 import {handleServerNetworkError} from "common/utils/handleServerNetworkError";
+import {ItemResponseType} from "common/types";
 
 export type TaskType = {
     id: string
@@ -129,12 +130,7 @@ export const removeTaskAC = (payload: { taskId: string; todolistId: string }) =>
         payload
     } as const
 }
-export const removeTaskTC =
-    (arg: { taskId: string; todolistId: string }) => (dispatch: Dispatch) => {
-        tasksApi.removeTask(arg).then(res => {
-            dispatch(removeTaskAC(arg))
-        })
-    }
+
 /*export const addTaskAC = (payload: { title: string; todolistId: string }) => { // без сервера
     return {
         type: 'ADD-TASK',
@@ -163,11 +159,16 @@ export const setTasksAC = (payload: { todolistId: string; tasks: DomainTask[] })
 }
 export const getTasksTC = (todolistId: string) => (dispatch: Dispatch) => {
     dispatch(setAppStatusAC('loading'))
-    tasksApi.getTasks(todolistId).then((res) => {
+    tasksApi.getTasks(todolistId)
+        .then((res) => {
         const tasks = res.data.items
         dispatch(setTasksAC({todolistId, tasks}))
         dispatch(setAppStatusAC('succeeded'))
     })
+        .catch((error) => {
+            handleServerNetworkError(error, dispatch)
+            console.log('error-getTasks')//
+        })
 }
 export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispatch) => {
     console.log('task add')
@@ -177,7 +178,7 @@ export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispa
             if (res.data.resultCode === ResultCode.Success) {          //если без ошибок запрос
                 dispatch(addTaskAC({task: res.data.data.item}))
                 dispatch(setAppStatusAC('succeeded'))
-            } else if (res.data.resultCode !== 0) {                      //если с ошибкой запрос
+            } else  {                      //если с ошибкой запрос
                 /*if (Array.isArray(messages) && messages.length > 0) {     //если есть сообщение об ошибке ( с бэка)
                     dispatch(setAppErrorAC(messages[0]))
                 } else {
@@ -219,6 +220,7 @@ export const changeTaskStatusTC =
                     .then(res => {
                         if (res.data.resultCode === ResultCode.Success){
                             dispatch(changeTaskStatusAC(arg))
+                            dispatch(setAppStatusAC('succeeded'))
                         } else {
                            /* if (res.data.messages.length) {                 // вынесли в отдельную ф-ю
                                 dispatch(setAppErrorAC(res.data.messages[0]))
@@ -262,18 +264,37 @@ export const changeTaskTitleTC =
                     .then(res => {
                         if (res.data.resultCode === ResultCode.Success){
                             dispatch(changeTaskTitleAC(arg))
+                            dispatch(setAppStatusAC('succeeded'))
                         } else {
                             handleServerAppError(res.data, dispatch)
                         }
                         })
-
-                   // dispatch(setAppStatusAC('succeeded'))
 
                     .catch(error => {
                         handleServerNetworkError(error, dispatch)
                     })
             }
         }
+export const removeTaskTC =
+    (arg: { taskId: string; todolistId: string }) => (dispatch: Dispatch) => {
+        console.log('removeTaskTC')
+        dispatch(setAppStatusAC('loading'))
+        tasksApi.removeTask(arg)
+            .then(res => {
+                if (res.data.resultCode === ResultCode.Success) {
+                    //если без ошибок запрос
+                    dispatch(removeTaskAC(arg))
+                    dispatch(setAppStatusAC('succeeded'))
+                } else {
+                    handleServerAppError(res.data, dispatch)
+                }
+
+            })
+            .catch((error) =>{
+                    handleServerNetworkError(error, dispatch)
+                }
+            )
+    }
 /*
 export type UpdateTaskDomainModel = {
     title?: string
