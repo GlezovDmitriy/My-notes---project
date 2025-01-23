@@ -5,6 +5,8 @@ import {DomainTask, UpdateTaskModel} from "../api/tasksApi.types";
 import {ResultCode, TaskStatus} from "common/enums/enums";
 import {RootState} from "../../../app/store";
 import {setAppErrorAC, setAppStatusAC} from "../../../app/app-reducer";
+import {handleServerAppError} from "common/utils/handleServerAppError";
+import {handleServerNetworkError} from "common/utils/handleServerNetworkError";
 
 export type TaskType = {
     id: string
@@ -176,19 +178,22 @@ export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispa
                 dispatch(addTaskAC({task: res.data.data.item}))
                 dispatch(setAppStatusAC('succeeded'))
             } else if (res.data.resultCode !== 0) {                      //если с ошибкой запрос
-                const messages = res.data.messages;
-                if (Array.isArray(messages) && messages.length > 0) {     //если есть сообщение об ошибке ( с бэка)
+                /*if (Array.isArray(messages) && messages.length > 0) {     //если есть сообщение об ошибке ( с бэка)
                     dispatch(setAppErrorAC(messages[0]))
                 } else {
                     dispatch(setAppErrorAC('Some error occurred'))
             }
             }
             dispatch(setAppStatusAC('failed'))
-        })
+        }*/   // вынесли в отдельную ф-ю
+                handleServerAppError(res.data, dispatch) // вынесли дублирование
+            }}
+        )
         .catch((error) => {
-            dispatch(setAppErrorAC(error.message))
+            /*dispatch(setAppErrorAC(error.message))   // вынесли в отдельную ф-ю
             console.log(error.message)
-            dispatch(setAppStatusAC("failed"))
+            dispatch(setAppStatusAC("failed"))*/
+            handleServerNetworkError(error, dispatch)   //
         })
 }
 export const changeTaskStatusTC =
@@ -215,20 +220,22 @@ export const changeTaskStatusTC =
                         if (res.data.resultCode === ResultCode.Success){
                             dispatch(changeTaskStatusAC(arg))
                         } else {
-                            if (res.data.messages.length) {
+                           /* if (res.data.messages.length) {                 // вынесли в отдельную ф-ю
                                 dispatch(setAppErrorAC(res.data.messages[0]))
                             } else {
                                 dispatch(setAppErrorAC('Some error occurred'))
                             }
-                            dispatch(setAppStatusAC('failed'))
+                            dispatch(setAppStatusAC('failed'))*/
+                            handleServerAppError(res.data, dispatch)
                         }
                     })
 
                     // dispatch(setAppStatusAC('succeeded'))
 
                     .catch(error => {
-                        dispatch(setAppErrorAC(error.message))
-                        dispatch(setAppStatusAC('failed'))
+                        /*dispatch(setAppErrorAC(error.message)) // вынесли в отдельную ф-ю
+                        dispatch(setAppStatusAC('failed'))*/
+                        handleServerNetworkError(error, dispatch)
                     })
             }
         }
@@ -256,20 +263,14 @@ export const changeTaskTitleTC =
                         if (res.data.resultCode === ResultCode.Success){
                             dispatch(changeTaskTitleAC(arg))
                         } else {
-                            if (res.data.messages.length) {
-                                dispatch(setAppErrorAC(res.data.messages[0]))
-                            } else {
-                                dispatch(setAppErrorAC('Some error occurred'))
-                            }
-                            dispatch(setAppStatusAC('failed'))
+                            handleServerAppError(res.data, dispatch)
                         }
                         })
 
                    // dispatch(setAppStatusAC('succeeded'))
 
                     .catch(error => {
-                        dispatch(setAppErrorAC(error.message))
-                        dispatch(setAppStatusAC('failed'))
+                        handleServerNetworkError(error, dispatch)
                     })
             }
         }
