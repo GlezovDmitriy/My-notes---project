@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="&quot;Remove .env from repository and add to .gitignore&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/components/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/components/EditableSpan.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/todolists/model/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/todolists-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/ui/Todolists/Todolist/Tasks/Tasks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ui/Todolists/Todolist/Tasks/Tasks.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/ui/Todolists/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ui/Todolists/Todolist/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/ui/Todolists/Todolist/TodolistTitle/TodolistTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ui/Todolists/Todolist/TodolistTitle/TodolistTitle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/ui/Todolists/Todolist/TodolistTitle/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ui/Todolists/Todolist/TodolistTitle/Task/Task.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +238,7 @@
       <workItem from="1736590682396" duration="8528000" />
       <workItem from="1736973389654" duration="3631000" />
       <workItem from="1737059767123" duration="2625000" />
-      <workItem from="1737273098524" duration="63316000" />
+      <workItem from="1737273098524" duration="64239000" />
     </task>
     <task id="LOCAL-00003" summary="Added Button component">
       <option name="closed" value="true" />
@@ -678,17 +677,5 @@
     <MESSAGE value="server connected" />
     <MESSAGE value="&quot;Remove .env from repository and add to .gitignore&quot;" />
     <option name="LAST_COMMIT_MESSAGE" value="&quot;Remove .env from repository and add to .gitignore&quot;" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/common/components/EditableSpan.tsx</url>
-          <line>12</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

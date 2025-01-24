@@ -71,7 +71,7 @@ export const Todolist = ({
                 }} />*/}
                 {/*через useState*/}
                 <AddItemForm addItem={addTaskCallback} disabled={todolist.entityStatus === 'loading'}/>
-            <Tasks todolist={todolist}/>
+            <Tasks todolist={todolist} disabled={todolist.entityStatus === 'loading'}/>
                 {/*<Button className={filter === 'All' ? 'active-filter' : ''}
                         title={'All'}
                         onClick={() => changeFilterTasksHandler('All')}/>*/}

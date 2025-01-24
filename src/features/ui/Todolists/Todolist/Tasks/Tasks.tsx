@@ -21,8 +21,9 @@ import {TaskStatus} from "common/enums/enums";
 import {useAppDispatch} from "common/hooks/useAppDispatch";
 type Props = {
     todolist: TodolistDomainType,
+    disabled: boolean
 }
-export const Tasks = ({ todolist }: Props) => {
+export const Tasks = ({ todolist, disabled }: Props) => {
 
     const tasks = useAppSelector(selectTasks)
     const  dispatch = useAppDispatch()
@@ -63,7 +64,7 @@ export const Tasks = ({ todolist }: Props) => {
                         return (
                             <li key={task.id}
                                 className={task.status === TaskStatus.Completed ? 'is-done' : ''}>
-                                <Task todolist={todolist} task={task}/>
+                                <Task todolist={todolist} task={task} disabled={disabled}/>
                             </li>
                         )
                     })
