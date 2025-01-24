@@ -2,10 +2,10 @@ import React, {ChangeEvent, useState} from 'react';
 
 type Props = {
     value: string
-    onChange:(newTitle:string)=>void
-
+    onChange: (newTitle: string) => void
+    disabled?: boolean
 }
-export const EditableSpan = ({value, onChange}: Props) => {
+export const EditableSpan = ({value, onChange, disabled}: Props) => {
     const [editMode, setEditMode] = useState(false)
     const [title, setTitle] = useState(value)
     const activateEditModeHandler = () => {
@@ -14,6 +14,7 @@ export const EditableSpan = ({value, onChange}: Props) => {
     const deactivateEditModeHandler = () => {
         setEditMode(false)
         onChange(title)
+
     }
     const changeTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setTitle(event.currentTarget.value)
@@ -24,9 +25,11 @@ export const EditableSpan = ({value, onChange}: Props) => {
                 <input value={title}
                        autoFocus
                        onBlur={deactivateEditModeHandler}
-                       onChange={changeTitleHandler}/>
+                       onChange={changeTitleHandler}
+                       disabled={disabled}
+                       />
             ) : (
-                <span onDoubleClick={activateEditModeHandler}>{value}</span>
+                <span onDoubleClick={activateEditModeHandler} >{value}</span>
             )}
         </>
     )

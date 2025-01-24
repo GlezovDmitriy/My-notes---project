@@ -58,7 +58,7 @@ export const Todolist = ({
     }*/
     return (
         <>
-            <TodolistTitle todolist={todolist}/>
+            <TodolistTitle todolist={todolist} disabled={todolist.entityStatus === 'loading'}/>
                 {/*через useRef*/}
                 {/* <input ref={inputRef}/>
                 <Button title={'+'} onClick={ ()=>{

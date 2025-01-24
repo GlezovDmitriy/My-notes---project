@@ -13,9 +13,10 @@ import {useAppDispatch} from "../../../../../common/hooks/useAppDispatch";
 
 type Props = {
     todolist: TodolistDomainType
+    disabled: boolean
 }
-export const TodolistTitle = ({todolist}: Props) => {
-    const {title, id, entityStatus} = todolist
+export const TodolistTitle = ({todolist, disabled}: Props) => {
+    const {title, id} = todolist
 
     const dispatch = useAppDispatch()
 
@@ -28,13 +29,15 @@ export const TodolistTitle = ({todolist}: Props) => {
 
     return (
         <div className={'todolist-title-container'}>
-            <EditableSpan value={todolist.title} onChange={updateTodolistHandler}/>
+            <EditableSpan value={todolist.title}
+                          onChange={updateTodolistHandler}
+                          disabled={disabled}/>
 
             {/*<Button title={'X'} onClick={removeTodolistHandler}/>*/}
             {/*из MUI:*/}
             <IconButton size="small"
                         onClick={removeTodolistHandler}
-                        disabled={entityStatus === 'loading'}>
+                        disabled={disabled}>
                 <DeleteIcon/>
             </IconButton>
         </div>
