@@ -6,6 +6,8 @@ import './index.css';
 import {Provider} from "react-redux";
 import {store} from "./app/store";
 import {App} from "./app/App";
+import {RouterProvider} from "react-router-dom";
+import {router} from "common/router/router";
 //import {AppHttpRequests} from "./app/AppHttpRequests";
 
 
@@ -14,7 +16,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
       <Provider store={store}>
-          <App />
+          <RouterProvider router={router} />
+          {/*<App />*/}
          {/* <AppHttpRequests/>*/}
       </Provider>
 );
