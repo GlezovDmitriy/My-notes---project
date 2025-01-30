@@ -12,6 +12,7 @@ import {selectStatusMode, selectThemeMode} from "./appSelectors";
 import { getTodolistsTC} from "../features/todolists/model/todolists-reducer";
 import {useAppDispatch} from "common/hooks/useAppDispatch";
 import {ErrorSnackbar} from "common/components/ErrorSnackbar";
+import {Outlet} from "react-router-dom";
 
 
 export const App = () => {
@@ -27,7 +28,8 @@ export const App = () => {
             <ThemeProvider theme={getTheme(themeMode)}>
                 <Box sx={{ backgroundColor: 'background.default', minHeight: '100vh', p: 2 }}>
             <Header/>
-            <Main/>
+            {/*<Main/>*/}
+                    <Outlet />
                 </Box>
 
                 <ErrorSnackbar/>

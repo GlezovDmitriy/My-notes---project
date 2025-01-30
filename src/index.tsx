@@ -7,7 +7,7 @@ import {Provider} from "react-redux";
 import {store} from "./app/store";
 import {App} from "./app/App";
 import {RouterProvider} from "react-router-dom";
-import {router} from "common/router/router";
+import {router, Path} from "common/router/router";
 //import {AppHttpRequests} from "./app/AppHttpRequests";
 
 
