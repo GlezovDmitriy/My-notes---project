@@ -10,29 +10,34 @@ import {getTheme} from "../theme/theme";
 import {useAppDispatch} from "../hooks/useAppDispatch";
 import {useAppSelector} from "../hooks/useAppSelector";
 import {selectStatusMode} from "../../app/appSelectors";
+import {selectIsLoggedIn} from "../../features/auth/model/authSelectors";
+import {logoutTC} from "../../features/auth/model/auth-reducer";
 
 export const Header = () => {
     const themeMode = useAppSelector<RootState, ThemeMode>(state => state.app.themeMode)
+    const isLoggedIn = useAppSelector(selectIsLoggedIn)
+    const dispatch = useAppDispatch()
     //const [themeMode, setThemeMode] = useState<ThemeMode>('light')
     getTheme(themeMode)
     const status = useAppSelector(selectStatusMode)
     const changeModeHandler = () => {
         dispatch(changeThemeAC(themeMode === 'light' ? 'dark' : 'light'))
     }
-    const dispatch = useAppDispatch()
+    const logoutHandler = ()=>{
+        dispatch(logoutTC())
+    }
     return (
         <AppBar position="static" sx={{mb: '30px'}}>
             <Toolbar>
                 <IconButton color="inherit">
                     <MenuIcon/>
                 </IconButton>
-                <Button color="inherit">Login</Button>
-
-                <Switch color={'default'} onChange={changeModeHandler} />
+                <div>
+                    <Switch color={'default'} onChange={changeModeHandler}/>
+                    {isLoggedIn && <Button color="inherit" onClick={logoutHandler}>Logout</Button>}
+                </div>
             </Toolbar>
-            {
-                status === 'loading' && <LinearProgress />
-            }
+            {status === 'loading' && <LinearProgress/>}
 
         </AppBar>
     );

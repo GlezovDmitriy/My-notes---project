@@ -39,7 +39,8 @@ type ActionsType = ReturnType<typeof setIsLoggedInAC>
 export const loginTC = (data: LoginArgs) => (dispatch: Dispatch) => {
     console.log('loginTC')
     dispatch(setAppStatusAC('loading'))
-    authApi.login(data)
+    authApi
+        .login(data)
         .then((res)=>{
             if(res.data.resultCode === ResultCode.Success){ // проверяем что все норм
                 dispatch(setIsLoggedInAC(true))
@@ -53,4 +54,21 @@ export const loginTC = (data: LoginArgs) => (dispatch: Dispatch) => {
                 handleServerNetworkError(error, dispatch)
             }
         )
+}
+export const logoutTC = () => (dispatch: Dispatch) => {
+    dispatch(setAppStatusAC('loading'))
+    authApi
+        .logout()
+        .then(res => {
+            if (res.data.resultCode === ResultCode.Success) {
+                dispatch(setAppStatusAC('succeeded'))
+                dispatch(setIsLoggedInAC(false))
+                localStorage.removeItem('sn-token')
+            } else {
+                handleServerAppError(res.data, dispatch)
+            }
+        })
+        .catch(error => {
+            handleServerNetworkError(error, dispatch)
+        })
 }
