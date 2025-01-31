@@ -13,14 +13,18 @@ import { getTodolistsTC} from "../features/todolists/model/todolists-reducer";
 import {useAppDispatch} from "common/hooks/useAppDispatch";
 import {ErrorSnackbar} from "common/components/ErrorSnackbar";
 import {Outlet} from "react-router-dom";
+import {selectIsLoggedIn} from "../features/auth/model/authSelectors";
 
 
 export const App = () => {
     const dispatch = useAppDispatch();
     const themeMode = useAppSelector(selectThemeMode)
+    const isLoggedIn = useAppSelector(selectIsLoggedIn)
 
 
     useEffect(() => {
+        if (!isLoggedIn) return
+        console.log('getTodolistsTC APP')
         dispatch(getTodolistsTC())
     }, [dispatch])
     return (

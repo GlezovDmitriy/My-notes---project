@@ -5,6 +5,7 @@ import {Login} from "../../features/auth/ui/Login/Login";
 import {Page404} from "common/components/Page404/Page404";
 
 export const Path = {
+    Main: '/',
     Login: 'login',
 } as const
 
@@ -14,7 +15,7 @@ export const router = createBrowserRouter([
         element: <App />,
         children: [
             {
-                path: '/',
+                path: Path.Main,
                 element: <Main />,
             },
             {

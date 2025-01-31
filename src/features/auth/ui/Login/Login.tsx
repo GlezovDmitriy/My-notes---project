@@ -11,6 +11,13 @@ import {useAppSelector} from "common/hooks/useAppSelector";
 import {getTheme} from "common/theme/theme";
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import s from "./Login.module.css"
+import {loginTC} from "../../model/auth-reducer";
+import {useDispatch} from "react-redux";
+import {useAppDispatch} from "common/hooks/useAppDispatch";
+import {selectIsLoggedIn} from "../../model/authSelectors";
+import {Navigate, useNavigate} from "react-router-dom";
+import {Path} from "common/router/router";
+import {useEffect} from "react";
 
 type Inputs = {
     email: string
@@ -18,8 +25,12 @@ type Inputs = {
     rememberMe: boolean
 }
 export const Login = () => {
+    const dispatch = useAppDispatch()
     const themeMode = useAppSelector(selectThemeMode)
+    const isLoggedIn = useAppSelector(selectIsLoggedIn)
+    console.log(isLoggedIn)
     const theme = getTheme(themeMode)
+    const navigate = useNavigate()
     const {
         control,
         register,
@@ -27,10 +38,22 @@ export const Login = () => {
         reset,
         formState: {errors},
     } = useForm<Inputs>({defaultValues: {email: '', password: '', rememberMe: false}})
-    const onSubmit: SubmitHandler<Inputs> = data => {
-        console.log(data)
+    const onSubmit: SubmitHandler<Inputs> = (data) => {
+       // console.log(data)
+        dispatch(loginTC(data))
         reset()
     }
+    if (isLoggedIn){
+        return <Navigate to={Path.Main}/>
+    }
+    /*useEffect(() => {
+        if (isLoggedIn) {
+            debugger
+            navigate(Path.Main)
+        } else {
+            navigate(Path.Login)
+        }
+    }, [isLoggedIn])*/
     return (
         <Grid container justifyContent={'center'}>
             <Grid item justifyContent={'center'}>

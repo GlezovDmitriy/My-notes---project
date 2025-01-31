@@ -15,14 +15,18 @@ import {useAppDispatch} from "../../../common/hooks/useAppDispatch";
 import {useAppSelector} from "../../../common/hooks/useAppSelector";
 import {selectTodolists} from "../../todolists/model/todolistsSelectors";
 import {todolistsApi} from "../../todolists/api/todolistsApi";
+import {selectIsLoggedIn} from "../../auth/model/authSelectors";
 
 export const Todolists = () => {
     const todolists = useAppSelector(selectTodolists)
     const dispatch = useAppDispatch()
+    const isLoggedIn = useAppSelector(selectIsLoggedIn)
 
     useEffect(() => {
+        if (!isLoggedIn) return
         todolistsApi.getTodolists().then(res => {
             dispatch(setTodolistsAC(res.data))
+            console.log('getTodolists TODO')
         })
     }, [])
 
