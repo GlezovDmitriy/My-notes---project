@@ -14,6 +14,7 @@ import {useAppDispatch} from "common/hooks/useAppDispatch";
 import {ErrorSnackbar} from "common/components/ErrorSnackbar";
 import {Outlet} from "react-router-dom";
 import {selectIsLoggedIn} from "../features/auth/model/authSelectors";
+import {initializeAppTC} from "../features/auth/model/auth-reducer";
 
 
 export const App = () => {
@@ -21,12 +22,15 @@ export const App = () => {
     const themeMode = useAppSelector(selectThemeMode)
     const isLoggedIn = useAppSelector(selectIsLoggedIn)
 
-
     useEffect(() => {
+        dispatch(initializeAppTC())
+    }, [])
+
+    /*useEffect(() => {
         if (!isLoggedIn) return
         console.log('getTodolistsTC APP')
         dispatch(getTodolistsTC())
-    }, [dispatch])
+    }, [dispatch])*/
     return (
         <div>
             <ThemeProvider theme={getTheme(themeMode)}>
