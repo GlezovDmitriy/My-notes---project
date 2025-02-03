@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import './App.css';
-import {Box, ThemeProvider} from "@mui/material";
+import {Box, CircularProgress, ThemeProvider} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatchType, RootState} from "./store";
 import {ThemeMode} from "./app-reducer";
@@ -13,19 +13,25 @@ import { getTodolistsTC} from "../features/todolists/model/todolists-reducer";
 import {useAppDispatch} from "common/hooks/useAppDispatch";
 import {ErrorSnackbar} from "common/components/ErrorSnackbar";
 import {Outlet} from "react-router-dom";
-import {selectIsLoggedIn} from "../features/auth/model/authSelectors";
+import {selectIsInitialized, selectIsLoggedIn} from "../features/auth/model/authSelectors";
 import {initializeAppTC} from "../features/auth/model/auth-reducer";
-
+import s from "./App.module.css"
 
 export const App = () => {
     const dispatch = useAppDispatch();
     const themeMode = useAppSelector(selectThemeMode)
     const isLoggedIn = useAppSelector(selectIsLoggedIn)
-
+    const isInitialized = useAppSelector(selectIsInitialized)
     useEffect(() => {
         dispatch(initializeAppTC())
     }, [])
-
+    if (!isInitialized) {
+        return (
+            <div className={s.circularProgressContainer}>
+                <CircularProgress size={150} thickness={3} />
+            </div>
+        )
+    }
     /*useEffect(() => {
         if (!isLoggedIn) return
         console.log('getTodolistsTC APP')
