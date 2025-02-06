@@ -94,7 +94,18 @@ export const Login = () => {
                             <TextField type="password"
                                        label="Password"
                                        margin="normal"
-                                       {...register('password')}/>
+                                       {...register('password', {
+                                           required: 'Password is required',
+                                           minLength: {
+                                               value: 3,
+                                               message: 'Password must be at least 3 characters long'
+                                           }
+                                       })}
+                                       error={!!errors.password}
+                                       helperText={errors.password ? errors.password.message : ''}
+
+
+                            />
                             <FormControlLabel
                                 label={'Remember me'}
                                 control={<Controller
