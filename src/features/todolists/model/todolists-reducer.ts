@@ -53,6 +53,7 @@ export type AddTodolistActionType = ReturnType<typeof addTodolistAC>
 export type ChangeTodolistTitleActionType = ReturnType<typeof changeTodolistTitleAC>
 export type ChangeTodolistFilterActionType = ReturnType<typeof changeTodolistFilterAC>
 export type SetTodolistsActionType = ReturnType<typeof setTodolistsAC>
+export type ClearTodosDataActionType = ReturnType<typeof clearTodosDataAC>
 export type ChangeTodolistEntityStatusActionType = ReturnType<typeof changeTodolistEntityStatusAC>
 
 export type ActionsType =
@@ -63,6 +64,7 @@ export type ActionsType =
     | SetTodolistsActionType
     | SetAppStatusActionType
     | ChangeTodolistEntityStatusActionType
+    | ClearTodosDataActionType
 export type TodolistDomainType = Todolist & {
     filter: FilterValuesType
     entityStatus: RequestStatus
@@ -108,6 +110,9 @@ export const todolistsReducer = (state: TodolistDomainType[] = initialState,
                 ? {...tl, entityStatus: action.payload.entityStatus}
                 : tl))
         }
+        case 'CLEAR-DATA':{
+            return []
+        }
         default:
             return state;
     }
@@ -117,6 +122,9 @@ export const todolistsReducer = (state: TodolistDomainType[] = initialState,
 /*export const removeTodolistAC = (todolistId:string):RemoveTodolistActionType =>{
 return { type: 'REMOVE-TODOLIST', payload: { id: todolistId } } as const
 }*/
+export const clearTodosDataAC = () => {
+    return {type: 'CLEAR-DATA'} as const
+}
 export const removeTodolistAC = (id: string) => {
     return {type: 'REMOVE-TODOLIST', payload: {id: id}} as const
 }
@@ -176,15 +184,15 @@ export const addTodolistTC = (title: string) => (dispatch: Dispatch) => {
                 handleServerAppError(res.data, dispatch)
             }
         })
-        .catch((error) =>{
-            handleServerNetworkError(error, dispatch)
-        }
+        .catch((error) => {
+                handleServerNetworkError(error, dispatch)
+            }
         )
 };
 export const removeTodolistTC = (id: string) => (dispatch: Dispatch) => {
     console.log('delete')
     dispatch(setAppStatusAC('loading'))
-    dispatch(changeTodolistEntityStatusAC({ id, entityStatus: 'loading' }))
+    dispatch(changeTodolistEntityStatusAC({id, entityStatus: 'loading'}))
     todolistsApi.removeTodolist(id)
         .then(res => {
             if (res.data.resultCode === ResultCode.Success) {
@@ -196,9 +204,9 @@ export const removeTodolistTC = (id: string) => (dispatch: Dispatch) => {
             }
 
         })
-        .catch((error) =>{
+        .catch((error) => {
                 handleServerNetworkError(error, dispatch)
-            dispatch(changeTodolistEntityStatusAC({ id, entityStatus: "failed" }))
+                dispatch(changeTodolistEntityStatusAC({id, entityStatus: "failed"}))
             }
         )
 }
@@ -215,7 +223,7 @@ export const changeTodolistTitleTC = (payload: { todolistId: string, title: stri
                 handleServerAppError(res.data, dispatch)
             }
         })
-        .catch((error) =>{
+        .catch((error) => {
                 handleServerNetworkError(error, dispatch)
             }
         )

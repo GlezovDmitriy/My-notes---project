@@ -1,4 +1,9 @@
-import {addTodolistAC, AddTodolistActionType, RemoveTodolistActionType} from "./todolists-reducer";
+import {
+    addTodolistAC,
+    AddTodolistActionType,
+    ClearTodosDataActionType,
+    RemoveTodolistActionType
+} from "./todolists-reducer";
 import {Dispatch} from "redux";
 import {tasksApi} from "../api/taskApi";
 import {DomainTask, UpdateTaskModel} from "../api/tasksApi.types";
@@ -48,14 +53,17 @@ type ActionsType = RemoveActionType
     | AddTodolistActionType
     | RemoveTodolistActionType
     | SetTasksActionType
+    | ClearTodosDataActionType
 //| UpdateTasksActionType
 export const tasksReducer = (state: MainTaskType = initialState, action: ActionsType): MainTaskType => {
     switch (action.type) {
-        case 'SET-TASKS':
+        case 'SET-TASKS': {
             return {
                 ...state,
                 [action.payload.todolistId]: action.payload.tasks
             }
+        }
+
         case 'REMOVE-TASK': {
             return {
                 ...state,
@@ -114,6 +122,9 @@ export const tasksReducer = (state: MainTaskType = initialState, action: Actions
             return newState
 
         }
+        case 'CLEAR-DATA':{
+            return {}
+        }
         default:
             return state
     }
@@ -161,10 +172,10 @@ export const getTasksTC = (todolistId: string) => (dispatch: Dispatch) => {
     dispatch(setAppStatusAC('loading'))
     tasksApi.getTasks(todolistId)
         .then((res) => {
-        const tasks = res.data.items
-        dispatch(setTasksAC({todolistId, tasks}))
-        dispatch(setAppStatusAC('succeeded'))
-    })
+            const tasks = res.data.items
+            dispatch(setTasksAC({todolistId, tasks}))
+            dispatch(setAppStatusAC('succeeded'))
+        })
         .catch((error) => {
             handleServerNetworkError(error, dispatch)
             console.log('error-getTasks')//
@@ -175,20 +186,21 @@ export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispa
     dispatch(setAppStatusAC('loading'))
     tasksApi.createTask({todolistId, title})
         .then(res => {
-            if (res.data.resultCode === ResultCode.Success) {          //если без ошибок запрос
-                dispatch(addTaskAC({task: res.data.data.item}))
-                dispatch(setAppStatusAC('succeeded'))
-            } else  {                      //если с ошибкой запрос
-                /*if (Array.isArray(messages) && messages.length > 0) {     //если есть сообщение об ошибке ( с бэка)
-                    dispatch(setAppErrorAC(messages[0]))
-                } else {
-                    dispatch(setAppErrorAC('Some error occurred'))
+                if (res.data.resultCode === ResultCode.Success) {          //если без ошибок запрос
+                    dispatch(addTaskAC({task: res.data.data.item}))
+                    dispatch(setAppStatusAC('succeeded'))
+                } else {                      //если с ошибкой запрос
+                    /*if (Array.isArray(messages) && messages.length > 0) {     //если есть сообщение об ошибке ( с бэка)
+                        dispatch(setAppErrorAC(messages[0]))
+                    } else {
+                        dispatch(setAppErrorAC('Some error occurred'))
+                }
+                }
+                dispatch(setAppStatusAC('failed'))
+            }*/   // вынесли в отдельную ф-ю
+                    handleServerAppError(res.data, dispatch) // вынесли дублирование
+                }
             }
-            }
-            dispatch(setAppStatusAC('failed'))
-        }*/   // вынесли в отдельную ф-ю
-                handleServerAppError(res.data, dispatch) // вынесли дублирование
-            }}
         )
         .catch((error) => {
             /*dispatch(setAppErrorAC(error.message))   // вынесли в отдельную ф-ю
@@ -218,16 +230,16 @@ export const changeTaskStatusTC =
                 dispatch(setAppStatusAC('loading'))
                 tasksApi.changeTaskStatus({taskId, todolistId, model})
                     .then(res => {
-                        if (res.data.resultCode === ResultCode.Success){
+                        if (res.data.resultCode === ResultCode.Success) {
                             dispatch(changeTaskStatusAC(arg))
                             dispatch(setAppStatusAC('succeeded'))
                         } else {
-                           /* if (res.data.messages.length) {                 // вынесли в отдельную ф-ю
-                                dispatch(setAppErrorAC(res.data.messages[0]))
-                            } else {
-                                dispatch(setAppErrorAC('Some error occurred'))
-                            }
-                            dispatch(setAppStatusAC('failed'))*/
+                            /* if (res.data.messages.length) {                 // вынесли в отдельную ф-ю
+                                 dispatch(setAppErrorAC(res.data.messages[0]))
+                             } else {
+                                 dispatch(setAppErrorAC('Some error occurred'))
+                             }
+                             dispatch(setAppStatusAC('failed'))*/
                             handleServerAppError(res.data, dispatch)
                         }
                     })
@@ -262,13 +274,13 @@ export const changeTaskTitleTC =
                 dispatch(setAppStatusAC('loading'))
                 tasksApi.changeTaskTitle({taskId, todolistId, model})
                     .then(res => {
-                        if (res.data.resultCode === ResultCode.Success){
+                        if (res.data.resultCode === ResultCode.Success) {
                             dispatch(changeTaskTitleAC(arg))
                             dispatch(setAppStatusAC('succeeded'))
                         } else {
                             handleServerAppError(res.data, dispatch)
                         }
-                        })
+                    })
 
                     .catch(error => {
                         handleServerNetworkError(error, dispatch)
@@ -290,7 +302,7 @@ export const removeTaskTC =
                 }
 
             })
-            .catch((error) =>{
+            .catch((error) => {
                     handleServerNetworkError(error, dispatch)
                 }
             )

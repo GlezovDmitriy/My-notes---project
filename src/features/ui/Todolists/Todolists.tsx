@@ -10,7 +10,14 @@ import Paper from "@mui/material/Paper";
 import {Todolist} from "./Todolist/Todolist";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../app/store";
-import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, TasksType} from "../../todolists/model/tasks-reducer";
+import {
+    addTaskAC,
+    changeTaskStatusAC,
+    changeTaskTitleAC,
+    getTasksTC,
+    removeTaskAC,
+    TasksType
+} from "../../todolists/model/tasks-reducer";
 import {useAppDispatch} from "../../../common/hooks/useAppDispatch";
 import {useAppSelector} from "../../../common/hooks/useAppSelector";
 import {selectTodolists} from "../../todolists/model/todolistsSelectors";
@@ -24,10 +31,19 @@ export const Todolists = () => {
 
     useEffect(() => {
         if (!isLoggedIn) return
-        todolistsApi.getTodolists().then(res => {
+        todolistsApi.getTodolists()
+            .then(res => {
+                debugger
             dispatch(setTodolistsAC(res.data))
             console.log('getTodolists TODO')
+                return res.data
         })
+            .then((todos) =>{
+                debugger
+                todos.forEach((tl)=>{
+                    dispatch(getTasksTC(tl.id))
+                })
+            })
     }, [])
 
    /* const removeTask = (taskId: string, todolistId: string) => {
