@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8bfb86d2-6fca-4f68-8acd-463e3173d4ca" name="Changes" comment="&quot;Remove .env from repository and add to .gitignore&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/auth/ui/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/ui/Login/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/components/Page404/Page404.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/components/Page404/Page404.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/components/Page404/Page404.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/components/Page404/Page404.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +241,7 @@
       <workItem from="1737059767123" duration="2625000" />
       <workItem from="1737273098524" duration="109017000" />
       <workItem from="1738697780393" duration="3312000" />
-      <workItem from="1738871859778" duration="3780000" />
+      <workItem from="1738871859778" duration="8532000" />
     </task>
     <task id="LOCAL-00003" summary="Added Button component">
       <option name="closed" value="true" />
