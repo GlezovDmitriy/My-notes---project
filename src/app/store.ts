@@ -4,6 +4,7 @@ import { todolistsReducer } from '../features/todolists/model/todolists-reducer'
 import {appReducer} from "./app-reducer";
 import {thunk, ThunkDispatch} from "redux-thunk";
 import {authReducer} from "../features/auth/model/auth-reducer";
+import {configureStore} from "@reduxjs/toolkit";
 
 // объединяя reducer-ы с помощью combineReducers,
 // мы задаём структуру нашего единственного объекта-состояния
@@ -14,8 +15,8 @@ const rootReducer = combineReducers({
     login: authReducer,
 })
 // непосредственно создаём store
-export const store = legacy_createStore(rootReducer,{}, applyMiddleware(thunk))
-
+//export const store = legacy_createStore(rootReducer,{}, applyMiddleware(thunk))
+export const store = configureStore({ reducer: rootReducer })
 // определить автоматически тип всего объекта состояния
 //export type RootState = ReturnType<typeof rootReducer>
 export type RootState = ReturnType<typeof store.getState>

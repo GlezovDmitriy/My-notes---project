@@ -33,13 +33,11 @@ export const Todolists = () => {
         if (!isLoggedIn) return
         todolistsApi.getTodolists()
             .then(res => {
-                debugger
             dispatch(setTodolistsAC(res.data))
             console.log('getTodolists TODO')
                 return res.data
         })
             .then((todos) =>{
-                debugger
                 todos.forEach((tl)=>{
                     dispatch(getTasksTC(tl.id))
                 })
